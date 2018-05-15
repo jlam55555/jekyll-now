@@ -1,53 +1,297 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Jonathan Lam <jlam55555@gmail.com>">
-    <meta name="description" content="Jonathan Lam's personal website">
-    <meta name="keywords" content="jonathan lam, programmer, hacker, mathematician, rubiks cubing">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jonathan Lam</title>
-    <link rel="icon" type="img/x-icon" href="./favicon.ico">
-    <link rel="stylesheet" href="./css/mobile.css">
-    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
+    <meta charset='utf-8'>
+    <meta name='author' content='Jonathan Lam <jonathanlamdev@gmail.com> (http://www.jonathanlam.tech)'>
+    <meta name='description' content='The personal website of Jonathan Lam'>
+    <meta name='keywords' content='jonathan lam, cooper union, programmer, freelancer'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='./mobile.css'>
+    <link rel='stylesheet' href='./desktop.css' media='screen and (min-width: 750px) and (min-height: 500px)'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css' integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp' crossorigin='anonymous'>
+    <script src='./script.js' defer></script>
   </head>
   <body>
-    <h1 id="title"><img src="img/jon.jpg" id="profileImage"> Jonathan Lam</h1>
-    <div id="terminal"><strong><span id="greenPrompt">jon@life</span>:<span id="bluePrompt">~</span>$ <span id="dynamicTerminal"></span><span id="cursor">&#9608;</span></strong></div>
-    <fieldset id="about">
-      <legend>About me</legend>
-      <p>Hi! My name is Jonathan Lam (a.k.a. jlam55555 or Lambda Ninja). I'm a big fan of writing code, solving Rubik's cubes, and bowling. Here are some major programming projects I've worked on. More to come soon.</p>
-      <p>Ask questions to me on StackOverflow, view my fiddles, view my GitHub, or compete with me on CodeWars or Project Euler. Contact me at <a href="mailto:jonathanlamdev@gmail.com">jonathanlamdev@gmail.com</a>.</p>
-      <a href="https://stackoverflow.com/users/2397327/lambda-ninja" class="profileBadge" title="Stack Overflow" target="_blank">
-        <i class="fab fa-stack-overflow fa-4x socialMedia" data-fa-transform="shrink-5" data-fa-mask="fas fa-circle"></i>
-      </a>
-      <a href="http://jsfiddle.net/user/jlam55555/" class="profileBadge" title="JSFiddle" target="_blank">
-        <i class="fab fa-jsfiddle fa-4x socialMedia" data-fa-transform="shrink-5" data-fa-mask="fas fa-circle"></i>
-      </a>
-      <a href="https://github.com/jlam55555" class="profileBadge" title="Github" target="_blank">
-        <i class="fab fa-github-alt fa-4x socialMedia" data-fa-transform="shrink-5" data-fa-mask="fas fa-circle"></i>
-      </a>
-      <a href="https://www.codewars.com/users/jlam55555/" class="profileBadge" title="CodeWars" target="_blank">
-        <i class="fas fa-code fa-4x socialMedia" data-fa-transform="shrink-6" data-fa-mask="fas fa-circle"></i>
-      </a>
-      <a href="https://projecteuler.net" class="profileBadge" title="Project Euler" target="_blank">
-        <i class="fas fa-calculator fa-4x socialMedia" data-fa-transform="shrink-6" data-fa-mask="fas fa-circle"></i>
-      </a>
-    </fieldset>
-    <fieldset id="majorProjects">
-      <legend>Major projects</legend>
-    </fieldset>
-    <fieldset id="minorProjects">
-      <legend>Smaller and incomplete projects</legend>
-      <p>This was copied over from the old blog. I will soon also be migrating over projects from THL. Pardon the appearance.</p>
-    </fieldset>
-    <div id="copyright">
-      &copy; Copyright 2018 Jonathan Lam.
+    <nav id='nav-bar'>
+      <div class='flex desktop'>
+        <a href='#about'>About</a>
+        <a href='#experience'>Experience</a>
+        <a href='#contact'>Contact</a>
+        <a href='./resume'>Résumé</a>
+      </div>
+      <div class='mobile'>
+        <button id='dropdown-button'><i class='fas fa-bars'></i></button>
+        <p id='mobile-title'>j. lam</p>
+      </div>
+    </nav>
+    <div class='mobile' id='dropdown-nav'>
+      <a href='#about'>About</a>
+      <a href='#experience'>Experience</a>
+      <a href='#contact'>Contact</a>
+      <a href='./resume'>Résumé</a>
+    </div>
+    <div class='jumbotron' id='main-jumbotron'>
+      <div class='container'>
+        <h1 class='text-center'><span class='inline desktop'>Hi. I'm</span> Jonathan Lam.</h1>
+        <h3 class='text-center'>
+          Nice to meet you.
+          <span class='desktop'>
+            <a href='./resume'>Résumé</a>.
+            <a href='#contact'>Contact</a>.
+          </span>
+          <div class='mobile'>
+            <a href='./resume'>Résumé</a>
+            <a href='#contact'>Contact</a>
+          </div>
+        </h3>
+      </div>
+      <div id='codeVisual'>
+        <div class='codeVisualButton' id='button1'></div>
+        <div class='codeVisualButton' id='button2'></div>
+        <div class='codeVisualButton' id='button3'></div>
+        <div id='codeVisualTerminal'>
+          <div class='code text-light' id='codeVisualBash'>
+            <span class='text-green'>jon@life:</span>
+            <span class='text-blue'>~</span>
+            <span>$&nbsp;</span>
+            <span id='codeVisualText'></span>
+            <span id='codeVisualCursor'>&#9608;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='image-separator' data-src='./assets/oculus.jpg'></div>
+    <div class='jumbotron' id='about'>
+      <div class='container'>
+        <h1>About</h1>
+        <p>I'm currently a senior in high school, entering <a href='http://cooper.edu/welcome' target='_blank'>the Cooper Union</a> as a freshman next year. While I will be studying electrical engineering, my <mark>passion is creating applications that will ease the life of workers, students, and other programmers</mark>. I hope that a college education in EE will allow me to get a fundamental idea of how computers work, while learning the theoretical side of computer science on my own.</p>
+        <p>I enjoy spending free time bowling, Rubik's cubing, doing origami, listening to Studio Ghibli music, answering questions on <a href='https://www.stackoverflow.com/users/2397327/jonathan-lam' target='_blank'>Stack Overflow</a>, trying to solve problems on Project Euler or <a href='https://www.codewars.com/users/jlam55555' target='_blank'>Code Wars</a>, and learning new languages. I also maintain a <a href='http://eis.jonathanlam.tech' target='_blank'>literary and programming blog</a>.</p>
+        <hr>
+        <h3>Programming Timeline</h3>
+        <ul>
+          <li>LIHacks 2016: Winner of the Most Entreneurial Prize for <a href='http://www.jonathanlam.tech/ringtune-website' target='_blank'>RingTune</a>.</li>
+          <li>Recipient of the University of Rochester Xerox Award for Innovation and Information Technology.</li>
+          <li>MoMath Hackathon 2017: Winner of the Dynamic Wall Challenge, finalist for the Math Square Challenge, and recipient of the Wolfram Award, for <a href='https://www.github.com/poobaloofa/howitfeelstochew5gum' target='_blank'>assorted projects</a>.</li>
+          <li>StuyHacks MLH LHD 2017: Best Game for <a href='http://www.fruitsensei.tech' target='_blank'>FruitSensei</a>.</li>
+          <li>Recipient of the Weller Foundation Computer Science/Technology Scholarship.</li>
+          <li>Safe Rides of Redding and Easton officially supports the website <a href='https://www.saferideser9.org' target='_blank'>saferideser9.org</a> for facilitation of the service.</li>
+        </ul>
+      </div>
+    </div>
+    <div class='image-separator' data-src='./assets/workspace.jpg'></div>
+    <div class='jumbotron' id='experience'>
+      <div class='container'>
+        <h1>Experience</h1>
+        <h3>Projects</h3>
+        <div class='row mobile-scroll'>
+          <div class='project-card'>
+            <a class='card' href='http://eis.jonathanlam.tech' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/eis.png'>
+              </div>
+              <div class='text-center card-body'>Everything is Sheep</div>
+            </a>
+          </div>
+          <div class='project-card'>
+            <a class='card' href='https://www.saferideser9.org' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/srre.png'>
+              </div>
+              <div class='text-center card-body'>Safe Rides of ER9</div>
+            </a>
+          </div>
+          <div class='project-card'>
+            <a class='card' href='http://www.thehomeworklife.co.nf' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/thl.png'>
+              </div>
+              <div class='text-center card-body'>The Homework Life</div>
+            </a>
+          </div>
+          <div class='project-card'>
+            <a class='card' href='http://www.fruitsensei.tech' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/fs.png'>
+              </div>
+              <div class='text-center card-body'>Fruit Sensei</div>
+            </a>
+          </div>
+          <div class='project-card'>
+            <a class='card' href='http://www.jonathanlam.tech/ringtune-website' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/rt.png'>
+              </div>
+              <div class='text-center card-body'>RingTune</div>
+            </a>
+          </div>
+          <div class='project-card'>
+            <a class='card' href='http://jbhsbowling.github.io' target='_blank'>
+              <div class='card-header'>
+                <img data-src='./assets/bb.png'>
+              </div>
+              <div class='text-center card-body'>Barlow Bowling</div>
+            </a>
+          </div>
+        </div>
+        <br>
+        <p class='text-center'>See more on my <a href='https://www.github.com/jlam55555/' target='_blank'>Github</a>.</p>
+        <hr>
+        <h3>Technologies</h3>
+        <div class='row mobile-scroll' id='technologies'>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-js-square'></i>
+              </div>
+              <div class='card-body'>JavaScript</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-node-js'></i>
+              </div>
+              <div class='card-body'>Node.JS</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fas fa-fw fa-code'></i>
+              </div>
+              <div class='card-body'>jQuery</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-angular'></i>
+              </div>
+              <div class='card-body'>Angular</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fas fa-fw fa-code'></i>
+              </div>
+              <div class='card-body'>Aurelia</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-html5'></i>
+              </div>
+              <div class='card-body'>HTML5</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-css3'></i>
+              </div>
+              <div class='card-body'>CSS3</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-php'></i>
+              </div>
+              <div class='card-body'>PHP</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fas fa-fw fa-code'></i>
+              </div>
+              <div class='card-body'>SQL</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fab fa-fw fa-java'></i>
+              </div>
+              <div class='card-body'>Java</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fas fa-fw fa-code'></i>
+              </div>
+              <div class='card-body'>C</div>
+            </div>
+          </div>
+          <div class='technology-card'>
+            <div class='card'>
+              <div class='card-header'>
+                <i class='fas fa-fw fa-code'></i>
+              </div>
+              <div class='card-body'>C++</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3>Preferences</h3>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th scope='col'>Category</th>
+                <th scope='col'>Preference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Editor</td>
+                <td>ViM</td>
+              </tr>
+              <tr>
+                <td>Browser</td>
+                <td>Google Chrome</td>
+              </tr>
+              <tr>
+                <td>OS</td>
+                <td>Linux (xubuntu)</td>
+              </tr>
+              <tr>
+                <td>Language</td>
+                <td>JavaScript</td>
+              </tr>
+              <tr>
+                <td>Indenting</td>
+                <td>spaces (2)</td>
+              </tr>
+              <tr>
+                <td>Code Style</td>
+                <td><a href='https%3A%2F%2Fgithub.com%2Fmrdoob%2Fthree.js%2Fwiki%2FMr.doob%27s-Code-Style%25E2%2584%25A2' target='_blank'>Mr.doob</a></td>
+              </tr>
+              <tr>
+                <td>Code Philosophy</td>
+                <td><a href='https://www.ampproject.org/about/amp-design-principles/' target='_blank'>AMP Design Principles</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class='video-placeholder'></div>
+    <video class='video-separator' autoplay loop poster='./assets/cube.jpg' muted>
+      <source src='./assets/cube.mp4' type='video/mp4' />
+    </video>
+    <div class='jumbotron' id='contact'>
+      <div class='container'>
+        <h1>Contact</h1>
+        <p>Interested in my work? Contact me at <a href='mailto:jonathanlamdev@gmail.com' target='_blank'>jonathanlamdev@gmail.com</a>.</p>
+        <p>Interested in hiring me? See my <a href='./resume' target='_blank'>résumé</a>.</p>
+      </div>
+      <small class='display-block text-secondary text-center' id='copyright-notice'>Copyright &copy; 2018 Jonathan Lam.</small>
     </div>
   </body>
 </html>

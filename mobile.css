@@ -1,0 +1,309 @@
+/* overarching, inherited styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body {
+  font-size: 16px;
+  font-family: montserrat, sans-serif;
+}
+
+/* generic style to mimic Bootstrap -- only use bottom margins */
+* {
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+/* headers only change size */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+.jumbotron {
+  min-height: 30em;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5em 0;
+}
+.image-separator, .video-placeholder {
+  display: block;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-color: aqua;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+}
+
+#codeVisualTerminal {
+  width: calc(100% - 2em);
+  max-width: 25em;
+  margin: 0 auto;
+  border-radius: 0.25em;
+  background-color: darkslategrey;
+}
+#codeVisualBash {
+  height: 2em;
+  padding: 0.5em;
+  font-size: 1.25em;
+}
+
+.container {
+  width: 100%;
+  max-width: 64em;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.code {
+  font-family: monospace;
+}
+
+.text-light {
+  color: whitesmoke;
+}
+
+
+.text-blue {
+  color: skyblue;
+}
+
+.text-green {
+  color: greenyellow;
+}
+
+#codeVisualBash * {
+  float: left;
+}
+
+.display-block {
+  display: block;
+}
+
+.text-secondary {
+  color: darkslategray;
+}
+
+#codeVisualCursor.blinking {
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% { color: inherit; }
+  49% { color: inherit; }
+  50% { color: transparent; }
+  99% { color: transparent; }
+  100% { color: inherit; }
+}
+
+.card {
+  box-shadow: 0 0 1px 0 darkslategrey;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+.card-header {
+  padding: 0;
+  background-color: whitesmoke;
+}
+
+.project-card {
+  flex: 0 0 80%;
+  padding: 1em;
+}
+.project-card .card img {
+  max-width: 10em;
+  display: block;
+  margin: 1em auto;
+  background-color: white;
+  border-radius: 1em;
+}
+.project-card .card-body {
+  padding: 1em;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 2px solid lightgray;
+}
+
+tr:nth-child(2n) {
+  background-color: whitesmoke;
+}
+
+th, td {
+  padding: 0.5em 1em;
+}
+tbody > tr {
+  border-top: 1px solid lightgray;
+}
+
+th {
+  text-align: left;
+}
+
+#nav-bar {
+  padding: 1em;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#nav-bar .mobile, #nav-bar .desktop {
+  display: flex;
+  flex-direction: row;
+}
+#mobile-title {
+  margin-bottom: 0;
+  text-align: center;
+  flex: 1 0 0;
+  margin-right: 1em;
+}
+#dropdown-button {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1px 0 black;
+  border-radius: 0.125em;
+  transition: 0.2s box-shadow;
+  background-color: transparent;
+  cursor: pointer;
+}
+#dropdown-button:active, #dropdown-button:hover {
+  box-shadow: 0 0 1px 0 lightgrey;
+}
+#dropdown-nav {
+  position: fixed;
+  z-index: 2;
+  top: 3.5em;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s height;
+}
+#dropdown-nav.show {
+  height: 9em;
+}
+#dropdown-nav > a {
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+}
+#nav-bar a {
+  color: black;
+  text-decoration: none;
+  padding: 0 0.5em 0.5em 0.5em;
+}
+#nav-bar a:hover {
+  border-bottom: 5px solid lightgrey;
+}
+
+#main-jumbotron {
+  justify-content: center;
+}
+
+#copyright-notice {
+  margin-top: auto;
+}
+
+hr {
+  background-color: lightgray;
+  margin: 3em 30%;
+  height: 1px;
+  border: none;
+}
+
+a:not(.card) {
+  color: dodgerblue;
+}
+a.card {
+  color: black;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+.technology-card {
+  flex: 0 0 33%;
+  padding: 1em;
+}
+
+.technology-card > .card {
+  flex-direction: row;
+}
+.project-card > .card:hover {
+  box-shadow: 0 0 2px 0 black;
+}
+
+.technology-card .card-header {
+  font-size: 2em;
+  padding: 0.5em;
+}
+
+.technology-card .card-body {
+  padding: 1.25em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+p, li {
+  line-height: 1.5;
+}
+
+.video-separator {
+  position: static;
+  width: 100%;
+}
+
+.jumbotron, .image-separator {
+  position: relative;
+  background-color: white;
+  z-index: 1;
+}
+
+.video-placeholder {
+  background-color: transparent;
+  display: none;
+}
+
+.mobile-scroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.mobile-scroll::after {
+  height: 0;
+  width: 0;
+  color: transparent;
+  content: 's';
+}
+.mobile-scroll:not(#technologies) > :first-child {
+  margin-left: 10%;
+}
+.mobile-scroll:not(#technologies) > :last-child {
+  margin-right: 10%;
+}
+
+.desktop {
+  display: none !important;
+}

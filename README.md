@@ -1,7 +1,4 @@
-# jonathanlam.tech
-### The official website of junior software developer Jonathan Lam
+# personal-new
+The next generation personal website for Jonathan Lam.
 
-Not much here yet. Still very much in development.
-
-### Sub-sites
-- eis.jonathanlam.tech: Everything is Sheep blog
+Much of the design inspired by Bootstrap (class-based styling), but no libraries were used for the sake of simplicity and speed.
