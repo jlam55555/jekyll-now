@@ -1,5 +1,3 @@
-alert('testing stage 11');
-
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
 Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backgroundImage = `url('${imageSeparator.dataset.src}')`);
