@@ -2,6 +2,7 @@
 let imageSeparators = document.querySelectorAll('.image-separator');
 Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backgroundImage = `url('${imageSeparator.dataset.src}')`);
 
+/*
 // lazy load images
 let images = document.querySelectorAll('img');
 Array.from(images).forEach(image => image.src = image.dataset.src);
@@ -80,3 +81,4 @@ let dropdownAs = document.querySelectorAll('#dropdown-nav > a');
 let toggleMenu = () => dropdown.classList.toggle('show');
 dropdownButton.addEventListener('click', toggleMenu);
 Array.from(dropdownAs).forEach(dropdownA => dropdownA.addEventListener('click', toggleMenu));
+*/
