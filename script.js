@@ -1,4 +1,4 @@
-alert('testing stage 6');
+alert('testing stage 7');
 
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
@@ -16,10 +16,11 @@ let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
 let resizeHandler = () => {
+  alert(window.visualViewport || 'nonexistant');
+  /*
   firstJumbotron.style.height = window.visualViewport.height + 'px';
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== window.visualViewport.width) {
-    /*
     oldWidth = window.visualViewport.width;
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.height = window.visualViewport.height + 'px';
@@ -38,8 +39,8 @@ let resizeHandler = () => {
       videoSeparator.style.marginLeft = ((window.visualViewport.width - videoSeparator.offsetWidth) / 2) + 'px';
     }
     videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';
-    */
   }
+  */
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);
