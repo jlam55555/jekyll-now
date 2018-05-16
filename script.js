@@ -1,4 +1,4 @@
-alert('testing stage 10');
+alert('testing stage 11');
 
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
@@ -15,11 +15,15 @@ let videoSeparator = document.querySelector('.video-separator');
 let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
-alert(window.visualViewport.width || window.innerWidth);
-alert(window.visualViewport.height || window.innerHeight);
 let resizeHandler = () => {
-  let windowWidth = window.visualViewport.width || window.innerWidth;
-  let windowHeight = window.visualViewport.height || window.innerHeight;
+  let windowWidth, windowHeight;
+  if(window.visualViewport) {
+    windowWidth = window.visualViewport.width;
+    windowHeight = window.visualViewport.height;
+  } else {
+    windowWidth = window.innerWidth;
+    windowHeight = window.innerHeight;
+  }
   firstJumbotron.style.height = windowHeight + 'px';
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== windowWidth) {
