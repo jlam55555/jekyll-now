@@ -1,4 +1,4 @@
-alert('testing stage 7');
+alert('testing stage 8');
 
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
@@ -16,16 +16,16 @@ let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
 let resizeHandler = () => {
-  alert(window.visualViewport || 'nonexistant');
-  /*
-  firstJumbotron.style.height = window.visualViewport.height + 'px';
+  let windowWidth = window.visualViewport.width || window.innerWidth;
+  let windowHeight = window.visualViewport.height || window.innerHeight;
+  firstJumbotron.style.height = windowHeight + 'px';
   // prevent constant refreshing on mobile on vertical resize
-  if(oldWidth !== window.visualViewport.width) {
-    oldWidth = window.visualViewport.width;
+  if(oldWidth !== windowWidth) {
+    oldWidth = windowWidth;
     [].forEach.call(imageSeparators, imageSeparator => {
-      imageSeparator.style.height = window.visualViewport.height + 'px';
+      imageSeparator.style.height = windowHeight + 'px';
     });
-    let windowAspectRatio = window.visualViewport.width / window.visualViewport.height;
+    let windowAspectRatio = windowWidth / windowHeight;
     // too narrow / tall
     if(videoAspectRatio < windowAspectRatio) {
       videoSeparator.style.width = '100%';
@@ -34,13 +34,12 @@ let resizeHandler = () => {
     }
     // too wide
     else {
-      videoSeparator.style.height = window.visualViewport.height + 'px';
+      videoSeparator.style.height = windowHeight + 'px';
       videoSeparator.style.width = 'auto';
-      videoSeparator.style.marginLeft = ((window.visualViewport.width - videoSeparator.offsetWidth) / 2) + 'px';
+      videoSeparator.style.marginLeft = ((windowWidth - videoSeparator.offsetWidth) / 2) + 'px';
     }
     videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';
   }
-  */
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);
