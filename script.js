@@ -4,11 +4,11 @@ alert('testing');
 let imageSeparators = document.querySelectorAll('.image-separator');
 Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backgroundImage = `url('${imageSeparator.dataset.src}')`);
 
-/*
 // lazy load images
 let images = document.querySelectorAll('img');
 Array.from(images).forEach(image => image.src = image.dataset.src);
 
+/*
 // set size of first jumbotron to window height (and resize when window resized)
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
