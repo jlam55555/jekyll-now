@@ -1,4 +1,4 @@
-alert('testing');
+alert('testing stage 3');
 
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
@@ -8,7 +8,6 @@ Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backg
 let images = document.querySelectorAll('img');
 Array.from(images).forEach(image => image.src = image.dataset.src);
 
-/*
 // set size of first jumbotron to window height (and resize when window resized)
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
@@ -76,6 +75,7 @@ let t = setInterval(() => {
   }
 }, 150);
 
+/*
 // dropdown button
 let dropdownButton = document.querySelector('#dropdown-button');
 let dropdown = document.querySelector('#dropdown-nav');
