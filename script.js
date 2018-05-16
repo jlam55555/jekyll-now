@@ -1,4 +1,4 @@
-alert('testing stage 4');
+alert('testing stage 5');
 
 // images for image separators
 let imageSeparators = document.querySelectorAll('.image-separator');
@@ -8,7 +8,6 @@ Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backg
 let images = document.querySelectorAll('img');
 Array.from(images).forEach(image => image.src = image.dataset.src);
 
-/*
 // set size of first jumbotron to window height (and resize when window resized)
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
@@ -17,6 +16,7 @@ let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
 let resizeHandler = () => {
+  /*
   firstJumbotron.style.height = window.visualViewport.height + 'px';
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== window.visualViewport.width) {
@@ -39,6 +39,7 @@ let resizeHandler = () => {
     }
     videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';
   }
+  */
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);
@@ -46,7 +47,7 @@ videoSeparator.addEventListener('loadedmetadata', () => {
   videoAspectRatio = videoSeparator.videoWidth / videoSeparator.videoHeight;
   resizeHandler();
 });
-*/
+
 
 // dynamic terminal
 let actions = ['brother', 'math', 'run', 'blog', 'code', 'build', 'cube', 'bowl', 'teach', 'learn', 'hack', 'eat', 'sleep', 'design'];
