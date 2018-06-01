@@ -2,25 +2,35 @@
   background-attachment: fixed;
   display: block;
 }
-#codeVisual {
-  background-color: tan;
-  flex: 1 0 0;
-  width: calc(100% - 2em);
-  max-height: 30em;
-  max-width: 50em;
-  margin: 0 auto;
-  margin-top: 1em;
-  border-radius: 1em;
-  position: relative;
-  overflow: hidden;
-}
-.codeVisualButton {
-  height: 1em;
-  width: 1em;
-  background-color: black;
-  border-radius: 100%;
-  position: absolute;
-  top: 1em;
+@media screen and (min-height: 750px) {
+  #codeVisual {
+    background-color: tan;
+    flex: 1 0 0;
+    width: calc(100% - 2em);
+    max-height: 30em;
+    max-width: 50em;
+    margin: 0 auto;
+    margin-top: 1em;
+    border-radius: 1em;
+    position: relative;
+    overflow: hidden;
+  }
+  .codeVisualButton {
+    height: 1em;
+    width: 1em;
+    background-color: black;
+    border-radius: 100%;
+    position: absolute;
+    top: 1em;
+  }
+  #codeVisualTerminal {
+    height: calc(100% - 3em);
+    position: absolute;
+    top: 3em;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
 }
 #button1 {
   right: 1em;
@@ -35,14 +45,6 @@
 #button3 {
   right: 4em;
   background-color: lightgreen;
-}
-#codeVisualTerminal {
-  height: calc(100% - 3em);
-  position: absolute;
-  top: 3em;
-  width: 100%;
-  max-width: 100%;
-  border-radius: 0;
 }
 
 #main-jumbotron h1 {
