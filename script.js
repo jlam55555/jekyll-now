@@ -14,6 +14,7 @@ let videoSeparator = document.querySelector('.video-separator');
 //let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
+let desktopNavbar = document.querySelector('#nav-bar .desktop');
 let resizeHandler = () => {
   let windowWidth, windowHeight;
   if(window.visualViewport) {
@@ -45,14 +46,10 @@ let resizeHandler = () => {
     }
     videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';*/
   }
+  desktopNavbar.style.height = windowHeight + 'px';
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);
-//videoSeparator.addEventListener('loadedmetadata', () => {
-//  videoAspectRatio = videoSeparator.videoWidth / videoSeparator.videoHeight;
-//  resizeHandler();
-//});
-
 
 // dynamic terminal
 let actions = ['brother', 'math', 'run', 'blog', 'code', 'build', 'cube', 'bowl', 'teach', 'learn', 'hack', 'eat', 'sleep', 'design'];
@@ -90,3 +87,33 @@ let dropdownAs = document.querySelectorAll('#dropdown-nav > a');
 let toggleMenu = () => dropdown.classList.toggle('show');
 dropdownButton.addEventListener('click', toggleMenu);
 Array.from(dropdownAs).forEach(dropdownA => dropdownA.addEventListener('click', toggleMenu));
+
+let navButtons = Array.from(document.querySelectorAll('#nav-bar .desktop a'));
+let elements = [
+  document.querySelector('#main-jumbotron'),
+  document.querySelector('#about'),
+  document.querySelector('#projects'),
+  document.querySelector('#technologies'),
+  document.querySelector('#contact')
+];
+let scrollHandler = () => {
+  let i;
+  for(i = 0; i < elements.length; i++) {
+    if(elements[i].getBoundingClientRect().top > 1) {
+      break;
+    }
+  }
+  i = i == 0 ? 0 : i-1;
+  navButtons[i].classList.add('active');
+  navButtons.forEach((button, index) => {
+    if(index !== i) button.classList.remove('active');
+  });
+};
+document.addEventListener('scroll', scrollHandler);
+scrollHandler();
+navButtons.forEach((button, id) => {
+  button.addEventListener('click', () => window.scroll({
+    top: elements[id].getBoundingClientRect().top + window.scrollY,
+    behavior: 'smooth'
+  }));
+});

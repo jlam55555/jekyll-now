@@ -1,3 +1,6 @@
+::-webkit-scrollbar {
+  display: none;
+}
 .image-separator, .video-placeholder {
   background-attachment: fixed;
   display: block;
@@ -70,10 +73,42 @@
   flex: 0 0 33%;
 }
 
-#nav-bar .desktop {
-  justify-content: flex-end;
+#nav-bar {
+  width: auto;
+  background-color: transparent;
 }
-
+#nav-bar .desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#nav-bar a {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  border: 5px solid grey;
+  margin: 0.5em 0.5em 2.5em 0.5em;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0;
+  transition:
+    width 0.1s,
+    height 0.1s,
+    margin 0.1s;
+}
+#nav-bar a:last-child {
+  margin-bottom: 0;
+}
+#nav-bar a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+#nav-bar a.active {
+  width: 2em;
+  height: 2em;
+  margin: 0 0 2em 0;
+}
 .video-separator {
   position: fixed;
   z-index: -1;

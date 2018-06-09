@@ -214,10 +214,12 @@ th {
   padding: 0.5em;
   margin-bottom: 5px;
 }
+/*
 #nav-bar a:hover {
   border-bottom: 5px solid lightgrey;
   margin-bottom: 0;
 }
+*/
 
 #main-jumbotron {
   justify-content: center;
