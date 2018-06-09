@@ -93,3 +93,21 @@
 .mobile {
   display: none !important;
 }
+
+.project {
+  background-size: 100% cover;
+}
+.project:hover {
+  background-size: 102% auto;
+}
+.project:hover::before {
+  opacity: 0;
+}
+.mini-project {
+  width: calc(100% / 3);
+}
+@media screen and (max-width: 1600px) {
+  .mini-project {
+    width: 50%;
+  }
+}

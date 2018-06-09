@@ -211,10 +211,12 @@ th {
 #nav-bar a {
   color: black;
   text-decoration: none;
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0.5em;
+  margin-bottom: 5px;
 }
 #nav-bar a:hover {
   border-bottom: 5px solid lightgrey;
+  margin-bottom: 0;
 }
 
 #main-jumbotron {
@@ -316,17 +318,14 @@ p, li {
 }
 
 .project {
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 50em;
+  height: 30em;
   width: 100%;
   position: relative;
   transition: background-size 0.1s;
   text-decoration: none;
-}
-.project:hover {
-  background-size: 102% auto;
 }
 .project::before {
   content: '';
@@ -341,14 +340,11 @@ p, li {
   opacity: 0.3;
   transition: opacity 0.1s;
 }
-.project:hover::before {
-  opacity: 0;
-}
 
 .project-info {
   padding: 1em;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   display: flex;
@@ -368,7 +364,7 @@ p, li {
 
 
 .mini-project {
-  width: calc(100% / 3);
+  width: 100%;
   height: 17em;
 }
 .mini-project > .project-info {
