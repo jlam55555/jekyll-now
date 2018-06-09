@@ -11,7 +11,7 @@ Array.from(images).forEach(image => image.src = image.dataset.src);
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
 let videoSeparator = document.querySelector('.video-separator');
-let videoPlaceholder = document.querySelector('.video-placeholder');
+//let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
 let videoAspectRatio = 1;
 let resizeHandler = () => {
@@ -30,7 +30,7 @@ let resizeHandler = () => {
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.height = windowHeight + 'px';
     });
-    let windowAspectRatio = windowWidth / windowHeight;
+ /*   let windowAspectRatio = windowWidth / windowHeight;
     // too narrow / tall
     if(videoAspectRatio < windowAspectRatio) {
       videoSeparator.style.width = '100%';
@@ -43,15 +43,15 @@ let resizeHandler = () => {
       videoSeparator.style.width = 'auto';
       videoSeparator.style.marginLeft = ((windowWidth - videoSeparator.offsetWidth) / 2) + 'px';
     }
-    videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';
+    videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';*/
   }
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);
-videoSeparator.addEventListener('loadedmetadata', () => {
-  videoAspectRatio = videoSeparator.videoWidth / videoSeparator.videoHeight;
-  resizeHandler();
-});
+//videoSeparator.addEventListener('loadedmetadata', () => {
+//  videoAspectRatio = videoSeparator.videoWidth / videoSeparator.videoHeight;
+//  resizeHandler();
+//});
 
 
 // dynamic terminal
