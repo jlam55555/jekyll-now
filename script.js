@@ -10,10 +10,7 @@ Array.from(images).forEach(image => image.src = image.dataset.src);
 // set size of first jumbotron to window height (and resize when window resized)
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
-let videoSeparator = document.querySelector('.video-separator');
-//let videoPlaceholder = document.querySelector('.video-placeholder');
 let oldWidth = 0;
-let videoAspectRatio = 1;
 let desktopNavbar = document.querySelector('#nav-bar .desktop');
 let resizeHandler = () => {
   let windowWidth, windowHeight;
@@ -31,20 +28,6 @@ let resizeHandler = () => {
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.height = windowHeight + 'px';
     });
- /*   let windowAspectRatio = windowWidth / windowHeight;
-    // too narrow / tall
-    if(videoAspectRatio < windowAspectRatio) {
-      videoSeparator.style.width = '100%';
-      videoSeparator.style.height = 'auto';
-      videoSeparator.style.marginLeft = '0';
-    }
-    // too wide
-    else {
-      videoSeparator.style.height = windowHeight + 'px';
-      videoSeparator.style.width = 'auto';
-      videoSeparator.style.marginLeft = ((windowWidth - videoSeparator.offsetWidth) / 2) + 'px';
-    }
-    videoPlaceholder.style.height = videoSeparator.offsetHeight + 'px';*/
   }
   desktopNavbar.style.height = windowHeight + 'px';
 };
