@@ -1,6 +1,7 @@
-// images for image separators
+// lazy-load images backgrounds
 let imageSeparators = document.querySelectorAll('.image-separator');
-Array.from(imageSeparators).forEach(imageSeparator => imageSeparator.style.backgroundImage = `url('${imageSeparator.dataset.src}')`);
+let imageBackgrounds = document.querySelectorAll('[data-src]:not(img)');
+Array.from(imageBackgrounds).forEach(imageSeparator => imageSeparator.style.backgroundImage = `url('${imageSeparator.dataset.src}')`);
 
 // lazy load images
 let images = document.querySelectorAll('img');

@@ -308,3 +308,83 @@ p, li {
 .desktop {
   display: none !important;
 }
+
+#projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.project {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50em;
+  width: 100%;
+  position: relative;
+  transition: background-size 0.1s;
+  text-decoration: none;
+}
+.project:hover {
+  background-size: 102% auto;
+}
+.project::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 0;
+  opacity: 0.3;
+  transition: opacity 0.1s;
+}
+.project:hover::before {
+  opacity: 0;
+}
+
+.project-info {
+  padding: 1em;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15em;
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+}
+
+.project-logo {
+  margin-bottom: 1em;
+  width: 5em;
+  border-radius: 0.5em;
+}
+
+
+.mini-project {
+  width: calc(100% / 3);
+  height: 17em;
+}
+.mini-project > .project-info {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.mini-project .project-title {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+}
