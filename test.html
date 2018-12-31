@@ -146,14 +146,18 @@
             }
           }
           
-          clearTimeout(debounceTimeout);
-          debounceTimeout = setTimeout(debounceScrollHandler, 500);
         }
 
-        setTimeout(_ => throttleLock = false, 50);
+        // switch to this for primitive throttling
+        //setTimeout(_ => throttleLock = false, 50);
+
+        throttleLock = false;
       };
       scrollContainer.addEventListener('scroll', _ => {
         scrollHandler();
+
+        clearTimeout(debounceTimeout);
+        debounceTimeout = setTimeout(debounceScrollHandler, 500);
       });
 
       // scroll left and right
