@@ -35,7 +35,7 @@ html {
   flex: 1 0 0;
 }
 #right-container {
-  flex: 0 0 3in;
+  flex: 0 0 2.75in;
   background-color: #0d47a1;
   color: white;
 }
@@ -52,10 +52,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'pontano sans';
 }
 h1:not(#name) {
-  margin-top: 0.05in;
+  margin-top: 0.1in;
   padding-top: 0.05in;
   border-top: 1px solid #0d47a1;
 }
+
 h3 {
   margin-top: -0.05in;
   color: #444;
@@ -84,6 +85,17 @@ li {
 }
 
 /*  specific element styles */
+#name-container {
+  text-align: right;
+  padding: 0 0 0.5in 0;
+}
+
+#name {
+  font-weight: bold;
+  font-family: 'lato';
+  font-size: 0.3in;
+}
+
 .icon-box {
   display: flex;
   flex-direction: row;
