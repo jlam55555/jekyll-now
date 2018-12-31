@@ -5,6 +5,8 @@
   </head>
   <body>
     <div id='project-scroller'></div>
+    <button id='scroll-left'>&lt;--</button>
+    <button id='scroll-right'>--&gt;</button>
     <style>
       #project-scroller {
         display: flex;
@@ -44,7 +46,7 @@
     </style>
     <script>
       let scrollContainer = document.querySelector('#project-scroller');
-      let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
       data.forEach((datum, index) => {
         let div = document.createElement('div');
         div.classList.add('project-icon');
@@ -94,7 +96,7 @@
       let debounceTimeout;
       let autoplayInterval;
       debounceScrollHandler = _ => {
-        console.log('debounced scroll!');
+        if(throttleLock) return;
         let closestElem = getCenterItem().elem;
         throttleLock = true;
         let scrollToPos = closestElem.offsetLeft + (sampleElementWidth - scrollContainer.offsetWidth) / 2;
@@ -103,7 +105,7 @@
         }
         scrollContainer.scrollTo({
           left: scrollToPos,
-          behavior: 'smooth',
+          behavior: 'smooth'
         });
         setTimeout(_ => {
           throttleLock = false;
@@ -114,7 +116,7 @@
       let throttleLock = false;
       let scrollHandler = _ => {
         if(throttleLock) return;
-        else throttleLock = true;
+        throttleLock = true;
 
         let closest = getCenterItem();
         let ind = closest.index;
@@ -160,8 +162,9 @@
         debounceTimeout = setTimeout(debounceScrollHandler, 500);
       });
 
-      // scroll left and right
+      // autoplay while pristine
       autoplayInterval = setInterval(_ => {
+        if(throttleLock) return;
         throttleLock = true;
         scrollContainer.scrollBy({
           left: sampleElementWidth,
@@ -172,6 +175,25 @@
           scrollHandler();
         }, 500);
       }, 5000);
+
+      // scroll left and right
+      let scrollAmount = Math.round(scrollContainer.offsetWidth / sampleElementWidth) * sampleElementWidth;
+      let scrollButtonHandler = left => {
+        if(throttleLock) return;
+        clearInterval(autoplayInterval);
+        throttleLock = true;
+        scrollContainer.scrollBy({
+          left: scrollAmount * (left ? -1 : 1),
+          behavior: 'smooth'
+        });
+        setTimeout(_ => {
+          throttleLock = false;
+          scrollHandler();
+        }, 500);
+      };
+      document.querySelector('#scroll-left').addEventListener('click', scrollButtonHandler.bind(null, true));
+      document.querySelector('#scroll-right').addEventListener('click', scrollButtonHandler.bind(null, false));
+      
     </script>
   </body>
 </html>
