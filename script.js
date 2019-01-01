@@ -10,7 +10,6 @@ Array.from(images).forEach(image => image.src = image.dataset.src);
 // set size of first jumbotron to window height (and resize when window resized)
 // resize image separators
 let firstJumbotron = document.querySelector('#main-jumbotron');
-let oldWidth = 0;
 let desktopNavbar = document.querySelector('#nav-bar .desktop');
 let projectLightboxElem = document.querySelector('#project-lightbox');
 let resizeHandler = () => {
@@ -25,8 +24,7 @@ let resizeHandler = () => {
   firstJumbotron.style.height = windowHeight + 'px';
   projectLightboxElem.style.minHeight = windowHeight + 'px';
   // prevent constant refreshing on mobile on vertical resize
-  if(oldWidth !== windowWidth) {
-    oldWidth = windowWidth;
+  if(windowWidth < 500 || windowHeight < 500) {
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.minHeight = windowHeight + 'px';
     });
@@ -230,10 +228,6 @@ projects.forEach((project, index) => {
   div.dataset.index = index;
   div.addEventListener('click', function() {
     debounceScrollHandler(this);
-    window.scrollTo({
-      top: projectLightboxElem.getBoundingClientRect().top + document.documentElement.scrollTop,
-      behavior: 'smooth',
-    });
   });
   if(project.imageText) {
     let imageText = document.createElement('div');
