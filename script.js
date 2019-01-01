@@ -188,13 +188,13 @@ let projects = [
     description: 'Java-based desktop GUI for viewing xkcd comics.'
   },
   {
-    imageText: 'xkcd-term',
+    imageText: '<span>xkcd</span><span>term</span>',
     background: './assets/xkcd-term.jpg',
     title: 'xkcd (Terminal)',
     description: 'Terminal-based xkcd viewer for Linux.'
   },
   {
-    imageText: 'PTL',
+    imageText: '<span>Pop</span><span>the</span><span>Lock</span>',
     background: './assets/ptl.jpg',
     title: 'Pop the Lock',
     description: 'Simple implementation of Pop the Lock'
@@ -206,13 +206,13 @@ let projects = [
     description: 'Keep tabs on your shopping list or whatever.'
   },
   {
-    imageText: 'UNSCM',
+    imageText: '<span>uns</span><span>cram</span><span>ble</span>',
     background: './assets/unscrambler.jpg',
     title: 'Word Unscrambler',
     description: 'Look up anagrams of a word, or play a game to find them yourself!'
   },
   {
-    imageText: 'SNT',
+    imageText: '<span>Simple</span><span>New</span><span>Tab</span>',
     background: './assets/snt.jpg',
     title: 'Simple New Tab: A Chrome Extension',
     description: 'Tired of the new tab page? Make it blank.'
@@ -238,7 +238,8 @@ projects.forEach((project, index) => {
   if(project.imageText) {
     let imageText = document.createElement('div');
     imageText.classList.add('unselectable', 'image-text');
-    imageText.textContent = project.imageText;
+    if(project.imageText.length < 5) imageText.classList.add('large-text');
+    imageText.innerHTML = project.imageText;
     div.appendChild(imageText);
   } else {
     let image = document.createElement('img');
@@ -247,6 +248,10 @@ projects.forEach((project, index) => {
     div.appendChild(image);
   }
   scrollContainer.appendChild(div);
+  
+  // lazy load background
+  let lazyLoadedImage = new Image();
+  lazyLoadedImage.src = project.background;
 });
 
 let n = projects.length;
@@ -254,11 +259,12 @@ let cur = Math.floor(n / 2);
 
 // set to center
 let sampleElement = scrollContainer.firstChild;
-let sampleElementWidth = sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
-scrollContainer.scrollLeft = Math.floor((sampleElementWidth * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
+let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
+
+scrollContainer.scrollLeft = Math.floor((sampleElementWidth() * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
 
 // hardcoded for now bc of ff problem: https://stackoverflow.com/questions/53992531/
-sampleElementWidth = 258;
+//sampleElementWidth = 258;
 
 let getCenterItem = _ => {
   let scrollPos = scrollContainer.scrollLeft;
@@ -311,7 +317,7 @@ debounceScrollHandler = elem => {
     changeProjectBox(cur);
   }
   throttleLock = true;
-  let scrollToPos = Math.floor(closestElem.offsetLeft + (sampleElementWidth - scrollContainer.getBoundingClientRect().width) / 2);
+  let scrollToPos = Math.floor(closestElem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
   if(scrollToPos != scrollContainer.scrollLeft) {
     clearInterval(autoplayInterval);
     scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
@@ -376,7 +382,7 @@ scrollContainer.addEventListener('scroll', _ => {
 autoplayInterval = setInterval(_ => {
   if(throttleLock) return;
   throttleLock = true;
-  scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + sampleElementWidth, 200, 'easeInOutQuad', _ => {
+  scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + sampleElementWidth(), 200, 'easeInOutQuad', _ => {
     throttleLock = false;
     carouselScrollHandler();
   });
@@ -385,8 +391,8 @@ autoplayInterval = setInterval(_ => {
 // scroll left and right
 // scroll by 3s
 // scroll by full screen is too much
-let scrollAmount = 3 * sampleElementWidth;
-//let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth) * sampleElementWidth;
+let scrollAmount = 3 * sampleElementWidth();
+//let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth()) * sampleElementWidth();
 let scrollButtonHandler = left => {
   if(throttleLock) return;
   throttleLock = true;
