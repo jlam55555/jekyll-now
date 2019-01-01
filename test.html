@@ -26,7 +26,6 @@
         flex: 0 0 132px;
         width: 132px;
         height: 132px;
-        /*background-color: darkgrey;*/
         margin: 0px;
         display: flex;
         justify-content: center;
@@ -51,8 +50,6 @@
         let div = document.createElement('div');
         div.classList.add('project-icon');
         div.dataset.index = index;
-        /*let color = Math.floor(Math.random() * Math.pow(16, 6));
-        div.style.backgroundColor = '#' + color.toString(16);*/
         let image = document.createElement('img');
         image.src = './assets/bb.jpg';
         div.appendChild(image);
@@ -98,6 +95,10 @@
       debounceScrollHandler = _ => {
         if(throttleLock) return;
         let closestElem = getCenterItem().elem;
+        if(closestElem.dataset.index != cur) {
+          cur = closestElem.dataset.index;
+          console.log('changed! cur = ' + cur);
+        }
         throttleLock = true;
         let scrollToPos = closestElem.offsetLeft + (sampleElementWidth - scrollContainer.offsetWidth) / 2;
         if(scrollToPos != scrollContainer.scrollLeft) {
@@ -120,12 +121,7 @@
 
         let closest = getCenterItem();
         let ind = closest.index;
-        let elem = closest.elem;
-        if(elem.dataset.index != cur) {
-          cur = elem.dataset.index;
-          console.log('changed! cur = ' + cur);
-        }
-
+        
         let left = ind;
         let right = n - 1 - ind;
         let diff = right - left;
@@ -180,8 +176,8 @@
       let scrollAmount = Math.round(scrollContainer.offsetWidth / sampleElementWidth) * sampleElementWidth;
       let scrollButtonHandler = left => {
         if(throttleLock) return;
-        clearInterval(autoplayInterval);
         throttleLock = true;
+        clearInterval(autoplayInterval);
         scrollContainer.scrollBy({
           left: scrollAmount * (left ? -1 : 1),
           behavior: 'smooth'

@@ -100,3 +100,182 @@ navButtons.forEach((button, id) => {
     behavior: 'smooth'
   }));
 });
+
+// START CAROUSEL BEHAVIOR
+// scroll animation function adapted from https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
+HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, easing = 'linear', callback) {
+
+  const easings = {
+    linear(t) { return t; },
+    easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+  };
+
+  const start = this.scrollLeft;
+  const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+  const destinationOffsetToScroll = Math.floor(destination);
+
+  const scroll = () => {
+    const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+    const time = Math.min(1, ((now - startTime) / duration));
+    const timeFunction = easings[easing](time);
+    this.scrollTo(Math.ceil((timeFunction * (destinationOffsetToScroll - start)) + start), 0);
+
+    if (this.scrollLeft === destinationOffsetToScroll) {
+      if (callback) { callback(); }
+      return;
+    }
+    requestAnimationFrame(scroll);
+  }
+  scroll();
+}
+
+let scrollContainer = document.querySelector('#project-scroller');
+let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+data.forEach((datum, index) => {
+  let div = document.createElement('div');
+  div.classList.add('project-icon');
+  div.dataset.index = index;
+  div.addEventListener('click', function() {
+    debounceScrollHandler(this);
+  });
+  let image = document.createElement('img');
+  image.classList.add('unselectable');
+  const images = ['./assets/thl.jpg', './assets/bb.jpg', './assets/fs.jpg', './assets/eis.jpg'];
+  image.src = images[Math.floor(Math.random() * images.length)];
+  div.appendChild(image);
+  scrollContainer.appendChild(div);
+});
+
+let n = data.length;
+let cur = Math.floor(n / 2);
+
+// set to center
+let sampleElement = scrollContainer.firstChild;
+let sampleElementWidth = sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
+scrollContainer.scrollLeft = Math.floor((sampleElementWidth * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
+
+// hardcoded for now bc of ff problem: https://stackoverflow.com/questions/53992531/
+sampleElementWidth = 258;
+
+let getCenterItem = _ => {
+  let scrollPos = scrollContainer.scrollLeft;
+  let containerCenter = scrollContainer.getBoundingClientRect().width / 2;
+  let sampleElement = scrollContainer.firstChild;
+  let elementWidth = sampleElement.getBoundingClientRect().width;
+  let elementMargin = parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2));
+  let closest, closestElem;
+  document.querySelectorAll('.project-icon').forEach((icon, index) => {
+    let iconOffset = icon.offsetLeft + elementWidth / 2 - scrollPos;
+    if(Math.abs(iconOffset - containerCenter) <= elementWidth / 2 + elementMargin) {
+      // closest to center!
+      icon.classList.add('centered');
+      closest = index;
+      closestElem = icon;
+    } else {
+      // not closest to center
+      icon.classList.remove('centered');
+    }
+  });
+  return {
+    index: closest,
+    elem: closestElem
+  };
+};
+
+// debouncing
+let debounceTimeout;
+let autoplayInterval;
+debounceScrollHandler = elem => {
+  if(throttleLock) return;
+  let closestElem = (elem === 'resize') ? currentElem : elem || getCenterItem().elem;
+  if(closestElem.dataset.index != cur) {
+    cur = closestElem.dataset.index;
+    currentElem = closestElem;
+    console.log('changed! cur = ' + cur);
+  }
+  throttleLock = true;
+  let scrollToPos = Math.floor(closestElem.offsetLeft + (sampleElementWidth - scrollContainer.getBoundingClientRect().width) / 2);
+  if(scrollToPos != scrollContainer.scrollLeft) {
+    clearInterval(autoplayInterval);
+    scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
+      throttleLock = false;
+    });
+  } else {
+    throttleLock = false;
+  }
+};
+window.addEventListener('resize', _ => {
+  clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(debounceScrollHandler.bind(null, 'resize'), 100);
+});
+
+// main scroll handler
+let currentElem = getCenterItem().elem;
+let throttleLock = false;
+let carouselScrollHandler = _ => {
+  if(throttleLock) return;
+  throttleLock = true;
+
+  let closest = getCenterItem();
+  let ind = closest.index;
+  
+  let left = ind;
+  let right = n - 1 - ind;
+  let diff = right - left;
+
+  if((n % 2 == 0 && Math.abs(diff) > 2) || (n % 2 == 1 && Math.abs(diff) > 0)) {
+    if(diff < 0) {
+      // more on left than right
+      for(let i = 0; i < -diff / 2; i++) {
+        /* maintaining scroll position picked up from https://codepen.io/ArtemGordinsky/pen/CevBD */
+        let currentOffset = scrollContainer.lastChild.offsetLeft - scrollContainer.scrollLeft;
+        scrollContainer.appendChild(scrollContainer.removeChild(scrollContainer.firstChild));
+        scrollContainer.scrollLeft = scrollContainer.lastChild.previousSibling.offsetLeft - currentOffset;
+      }
+    } else {
+      // more on right than left
+      for(let i = 0; i < diff / 2; i++) {
+        let currentOffset = scrollContainer.firstChild.offsetLeft - scrollContainer.scrollLeft;
+        scrollContainer.insertBefore(scrollContainer.removeChild(scrollContainer.lastChild), scrollContainer.firstChild);
+        scrollContainer.scrollLeft = scrollContainer.firstChild.nextSibling.offsetLeft - currentOffset;
+      }
+    }
+    
+  }
+
+  // switch to this for primitive throttling
+  //setTimeout(_ => throttleLock = false, 50);
+
+  throttleLock = false;
+};
+scrollContainer.addEventListener('scroll', _ => {
+  carouselScrollHandler();
+
+  clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(debounceScrollHandler, 500);
+});
+
+// autoplay while pristine
+autoplayInterval = setInterval(_ => {
+  if(throttleLock) return;
+  throttleLock = true;
+  scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + sampleElementWidth, 200, 'easeInOutQuad', _ => {
+    throttleLock = false;
+    carouselScrollHandler();
+  });
+}, 5000);
+
+// scroll left and right
+let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth) * sampleElementWidth;
+let scrollButtonHandler = left => {
+  if(throttleLock) return;
+  throttleLock = true;
+  clearInterval(autoplayInterval);
+  scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + scrollAmount * (left ? -1 : 1), 200, 'easeInOutQuad', _ => {
+    throttleLock = false;
+    carouselScrollHandler();
+  });
+};
+document.querySelector('#scroll-left').addEventListener('click', scrollButtonHandler.bind(null, true));
+document.querySelector('#scroll-right').addEventListener('click', scrollButtonHandler.bind(null, false));
+// END CAROUSEL BEHAVIOR

@@ -386,3 +386,47 @@ p, li {
   position: relative;
   z-index: 1;
 }
+
+/* project carousel */
+#project-scroller {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  position: relative;
+
+  /* hide scrollbar */
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+#project-scroller::-webkit-scrollbar {
+  display: none;
+}
+.project-icon {
+  flex: 0 0 258px;
+  width: 258px;
+  height: 258px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-icon > img {
+  width: 128px;
+  height: 128px;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1px 1px lightgrey;
+  transition: width 0.2s, height 0.2s;
+}
+.project-icon.centered > img {
+  width: 256px;
+  height: 256px;
+}
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
