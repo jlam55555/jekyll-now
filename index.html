@@ -84,16 +84,19 @@
     </div>
     <div class='image-separator' data-src='./assets/ths.jpg'></div>
     <div class='jumbotron' id='projects'>
-      <div class='container'>
 
+      <div id='project-lightbox'>
         <div id='project-scroller'></div>
-        <button id='scroll-left'>&lt;--</button>
-        <button id='scroll-right'>--&gt;</button>
+        <button id='scroll-left'>&#x2bc7;</button>
+        <button id='scroll-right'>&#x2bc8;</button>
 
-        <h1>Projects</h1>
-        <p>Here are some of the things I've made!</p>
+        <div id='project-box' class='container'>
+          <h1 id='project-title'></h1>
+          <p id='project-description'></p>
+        </div>
       </div>
-      <a class='project' data-src='./assets/eis-full.jpg' href='//eis.jonathanlam.tech' target='_blank'>
+
+      <!--<a class='project' data-src='./assets/eis-full.jpg' href='//eis.jonathanlam.tech' target='_blank'>
         <div class='project-info'>
           <img class='project-logo' data-src='./assets/eis.jpg'>
           <div class='project-title'>Everything is Sheep</div>
@@ -177,6 +180,7 @@
       <div class='container'>
         <p class='text-center'>See more projects on my <a href='https://www.github.com/jlam55555/' target='_blank'>Github</a>.</p>
       </div>
+      -->
     </div>
     <div class='image-separator' data-src='./assets/workspace.jpg'></div>
     <div class='jumbotron' id='technologies'>

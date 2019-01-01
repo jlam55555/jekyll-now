@@ -12,6 +12,7 @@ Array.from(images).forEach(image => image.src = image.dataset.src);
 let firstJumbotron = document.querySelector('#main-jumbotron');
 let oldWidth = 0;
 let desktopNavbar = document.querySelector('#nav-bar .desktop');
+let projectLightboxElem = document.querySelector('#project-lightbox');
 let resizeHandler = () => {
   let windowWidth, windowHeight;
   if(window.visualViewport) {
@@ -22,11 +23,12 @@ let resizeHandler = () => {
     windowHeight = window.innerHeight;
   }
   firstJumbotron.style.height = windowHeight + 'px';
+  projectLightboxElem.style.minHeight = windowHeight + 'px';
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== windowWidth) {
     oldWidth = windowWidth;
     [].forEach.call(imageSeparators, imageSeparator => {
-      imageSeparator.style.height = windowHeight + 'px';
+      imageSeparator.style.minHeight = windowHeight + 'px';
     });
   }
   desktopNavbar.style.height = windowHeight + 'px';
@@ -130,23 +132,124 @@ HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, e
 }
 
 let scrollContainer = document.querySelector('#project-scroller');
-let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-data.forEach((datum, index) => {
+let projects = [
+  {
+    image: './assets/eis.jpg',
+    background: './assets/eis-full.jpg',
+    title: 'Everything is Sheep',
+    description: 'Everything is Sheep is a blog.'
+  },
+  {
+    image: './assets/thl.jpg',
+    background: './assets/thl-full.jpg',
+    title: 'The Homework Life',
+    description: 'The Homework Life was my first blog.'
+  },
+  {
+    image: './assets/srre.jpg',
+    background: './assets/srre-full.jpg',
+    title: 'Safe Rides of Redding and Easton',
+    description: 'This is a web-app written for the Safe Rides service for high schoolers of the ER9 school district.'
+  },
+  {
+    image: './assets/fs.jpg',
+    background: './assets/fs-full.jpg',
+    title: 'Fruit Sensei',
+    description: 'This is an interactive game in which you use your phone like a katana.'
+  },
+  {
+    image: './assets/mrg.jpg',
+    background: './assets/mrg-full.jpg',
+    title: 'Multiracer Game',
+    description: 'This is an interactive multiplayer game in which you drive the car, using you phone like a steering wheel.'
+  },
+  {
+    imageText: 'WV',
+    background: './assets/wv.jpg',
+    title: 'Word Visualizer',
+    description: 'Word visualizer is a fun little app to save text as an image.'
+  },
+  {
+    imageText: 'A.Io',
+    background: './assets/ar.jpg',
+    title: 'Agar.io Imitation',
+    description: 'Imitation game for Agar.io.'
+  },
+  {
+    imageText: 'RT',
+    background: './assets/rt.jpg',
+    title: 'RingTune',
+    description: 'Make a little melody with RingTune!'
+  },
+  {
+    imageText: 'jkcd',
+    background: './assets/jkcd.jpg',
+    title: 'jkcd',
+    description: 'Java-based desktop GUI for viewing xkcd comics.'
+  },
+  {
+    imageText: 'xkcd-term',
+    background: './assets/xkcd-term.jpg',
+    title: 'xkcd (Terminal)',
+    description: 'Terminal-based xkcd viewer for Linux.'
+  },
+  {
+    imageText: 'PTL',
+    background: './assets/ptl.jpg',
+    title: 'Pop the Lock',
+    description: 'Simple implementation of Pop the Lock'
+  },
+  {
+    imageText: 'Noted',
+    background: './assets/noted.jpg',
+    title: 'Noted: A Chrome Extension',
+    description: 'Keep tabs on your shopping list or whatever.'
+  },
+  {
+    imageText: 'UNSCM',
+    background: './assets/unscrambler.jpg',
+    title: 'Word Unscrambler',
+    description: 'Look up anagrams of a word, or play a game to find them yourself!'
+  },
+  {
+    imageText: 'SNT',
+    background: './assets/snt.jpg',
+    title: 'Simple New Tab: A Chrome Extension',
+    description: 'Tired of the new tab page? Make it blank.'
+  },
+  {
+    image: './assets/bb.jpg',
+    background: './assets/bb-full.jpg',
+    title: 'JBHS Bowling Website',
+    description: 'Statistics for the JBHS CIBL Bowling Team of the 2017-2018 season.'
+  },
+];
+projects.forEach((project, index) => {
   let div = document.createElement('div');
   div.classList.add('project-icon');
   div.dataset.index = index;
   div.addEventListener('click', function() {
     debounceScrollHandler(this);
+    window.scrollTo({
+      top: projectLightboxElem.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: 'smooth',
+    });
   });
-  let image = document.createElement('img');
-  image.classList.add('unselectable');
-  const images = ['./assets/thl.jpg', './assets/bb.jpg', './assets/fs.jpg', './assets/eis.jpg'];
-  image.src = images[Math.floor(Math.random() * images.length)];
-  div.appendChild(image);
+  if(project.imageText) {
+    let imageText = document.createElement('div');
+    imageText.classList.add('unselectable', 'image-text');
+    imageText.textContent = project.imageText;
+    div.appendChild(imageText);
+  } else {
+    let image = document.createElement('img');
+    image.classList.add('unselectable');
+    image.src = project.image;
+    div.appendChild(image);
+  }
   scrollContainer.appendChild(div);
 });
 
-let n = data.length;
+let n = projects.length;
 let cur = Math.floor(n / 2);
 
 // set to center
@@ -182,6 +285,20 @@ let getCenterItem = _ => {
   };
 };
 
+// update DOM with details
+let projectTitleElem = document.querySelector('#project-title');
+let projectDescriptionElem = document.querySelector('#project-description');
+let changeProjectBox = index => {
+  let project = projects[index];
+  projectTitleElem.textContent = project.title;
+  projectDescriptionElem.textContent = project.description;
+
+  if(project.background) {
+    projectLightboxElem.style.background = `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('${project.background}')`;
+  }
+};
+changeProjectBox(cur);
+
 // debouncing
 let debounceTimeout;
 let autoplayInterval;
@@ -191,7 +308,7 @@ debounceScrollHandler = elem => {
   if(closestElem.dataset.index != cur) {
     cur = closestElem.dataset.index;
     currentElem = closestElem;
-    console.log('changed! cur = ' + cur);
+    changeProjectBox(cur);
   }
   throttleLock = true;
   let scrollToPos = Math.floor(closestElem.offsetLeft + (sampleElementWidth - scrollContainer.getBoundingClientRect().width) / 2);
@@ -266,7 +383,10 @@ autoplayInterval = setInterval(_ => {
 }, 5000);
 
 // scroll left and right
-let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth) * sampleElementWidth;
+// scroll by 3s
+// scroll by full screen is too much
+let scrollAmount = 3 * sampleElementWidth;
+//let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth) * sampleElementWidth;
 let scrollButtonHandler = left => {
   if(throttleLock) return;
   throttleLock = true;
