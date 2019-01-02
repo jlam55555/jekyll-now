@@ -148,25 +148,48 @@ let projects = [
     image: './assets/thl.jpg',
     background: './assets/thl-full.jpg',
     title: 'The Homework Life',
-    description: 'The Homework Life was my first blog.'
+    description: 'The earliest of multiple blogs! The fear of fluncking Advanced English drove me to create this collection of babbling adolescent blurbs. For a while, this also was the hub of my programming projects before switching over to using GitHub sites for hosting.',
+    active: '2015-2016',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'PHP', 'MySQL' ],
+    links: [
+      { title: 'See it', url: 'http://www.thehomeworklife.co.nf' }
+    ]
   },
   {
     image: './assets/srre.jpg',
     background: './assets/srre-full.jpg',
     title: 'Safe Rides of Redding and Easton',
-    description: 'This is a web-app written for the Safe Rides service for high schoolers of the ER9 school district.'
+    description: 'The official web-app for the Safe Rides service for the ER9 region! The service provides high schoolers with a trusted, reliable way home on late Friday and Saturday nights. The web-app is a website which can easily be saved as a web-app on iOS for easy access, and offers anything a volunteer or ride-requester needs to use the service. (Currently not in use by the service, although that may change.)',
+    active: '2017-2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL', 'Bootstrap', 'Socket.io' ],
+    links: [
+      { title: 'See it', url: 'https://safe-rides-redding-easton.herokuapp.com' }
+    ]
   },
   {
     image: './assets/fs.jpg',
     background: './assets/fs-full.jpg',
     title: 'Fruit Sensei',
-    description: 'This is an interactive game in which you use your phone like a katana.'
+    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>.`,
+    active: '2017',
+    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
+    links: [
+      { title: 'See it', url: 'https://fruit-sensei.herokuapp.com/' },
+      { title: 'Devpost', url: 'https://devpost.com/software/fruit-sensei' },
+      { title: 'GitHub', url: 'https://github.com/FruitSensei/fruitsensei.github.io' }
+    ]
   },
   {
     image: './assets/mrg.jpg',
     background: './assets/mrg-full.jpg',
     title: 'Multiracer Game',
-    description: 'This is an interactive multiplayer game in which you drive the car, using you phone like a steering wheel.'
+    description: `Use your phone to steer a car on the screen. Play with up to three of your friends. This uses JavaScript's deviceorientation event to track your phone's orientation. Created for the AP CSP Create Performance Task with <a href='https://github.com/rdk750' target='_blank'>Rahul Kiefer</a>.`,
+    active: '2018',
+    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
+    links: [
+      { title: 'See it', url: 'https://racing-game-csp.herokuapp.com' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/racing-game' }
+    ]
   },
   {
     imageText: 'WV',
@@ -250,7 +273,7 @@ projects.forEach((project, index) => {
   }
   scrollContainer.appendChild(div);
   
-  // lazy load background
+  // preload backgrounds
   let lazyLoadedImage = new Image();
   lazyLoadedImage.src = project.background;
 });
@@ -302,13 +325,15 @@ const faClassMap = {
   'CSS3': 'fab fa-css3',
   'HTML5': 'fab fa-html5',
   'JavaScript': 'fab fa-js',
+  'MySQL': 'fas fa-database',
   'Node.JS': 'fab fa-node-js',
   'PostgreSQL': 'fas fa-database',
+  'PHP': 'fab fa-php',
 };
 let changeProjectBox = index => {
   let project = projects[index];
   projectTitleElem.textContent = project.title;
-  projectDescriptionElem.textContent = project.description;
+  projectDescriptionElem.innerHTML = project.description;
   projectLightboxElem.style.background = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${project.background}')`;
 
   projectActiveElem.textContent = project.active;

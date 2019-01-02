@@ -462,8 +462,7 @@ p, li {
 }
 #project-box > #project-links {
 }
-#project-box > #project-links > a {
-  text-decoration: none;
+#project-box a {
   color: inherit !important;
 }
 #project-box > #project-stack > .stack-card {
