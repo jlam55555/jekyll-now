@@ -137,7 +137,12 @@ let projects = [
     image: './assets/eis.jpg',
     background: './assets/eis-full.jpg',
     title: 'Everything is Sheep',
-    description: 'Everything is Sheep is a blog.'
+    description: 'Everything is Sheep (EiS) is a blog comprising of essays about high school and programming, and is the successor to The Homework Life (THL). While THL was written in 2015 in response to academic-literary dread, this one was written on a whim. All of the posts from THL were migrated over. A major goal of EiS was to create a sleeker blog interface and move the tech stack over from PHP (LAMP) to JavaScript (Node.js back-end).',
+    active: '2017-2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL' ],
+    links: [
+      { title: 'See it', url: 'https://everything-is-sheep.herokuapp.com' }
+    ]
   },
   {
     image: './assets/thl.jpg',
@@ -290,14 +295,25 @@ let getCenterItem = _ => {
 // update DOM with details
 let projectTitleElem = document.querySelector('#project-title');
 let projectDescriptionElem = document.querySelector('#project-description');
+let projectActiveElem = document.querySelector('#project-active');
+let projectStackElem = document.querySelector('#project-stack');
+let projectLinksElem = document.querySelector('#project-links');
+const faClassMap = {
+  'CSS3': 'fab fa-css3',
+  'HTML5': 'fab fa-html5',
+  'JavaScript': 'fab fa-js',
+  'Node.JS': 'fab fa-node-js',
+  'PostgreSQL': 'fas fa-database',
+};
 let changeProjectBox = index => {
   let project = projects[index];
   projectTitleElem.textContent = project.title;
   projectDescriptionElem.textContent = project.description;
+  projectLightboxElem.style.background = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${project.background}')`;
 
-  if(project.background) {
-    projectLightboxElem.style.background = `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('${project.background}')`;
-  }
+  projectActiveElem.textContent = project.active;
+  projectStackElem.innerHTML = (project.stack || []).map(projectTechnology => `<span class='stack-card unselectable'><i class='${faClassMap[projectTechnology] || 'fas fa-code'}'></i> <span>${projectTechnology}</span></span>`).join('');
+  projectLinksElem.innerHTML = (project.links || []).map(projectLink => `<a href='${projectLink.url}' target='_blank'>${projectLink.title} <i class='fas fa-external-link-square-alt'></i></a>`).join(' | ');
 };
 changeProjectBox(cur);
 

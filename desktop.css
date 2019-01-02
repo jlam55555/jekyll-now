@@ -159,6 +159,9 @@
   width: 128px;
   height: 128px;
 }
+.project-icon.centered > img, .project-icon.centered > .image-text {
+  box-shadow: 0 0 50px 1px grey;
+}
 .project-icon > .image-text {
   font-size: 24px;
 }
@@ -166,18 +169,19 @@
   font-size: 40px;
 }
 #scroll-left, #scroll-right {
+  display: block;
   height: 258px;
   position: relative;
   top: -258px;
   margin-bottom: -258px;
-  background-color: darkslategrey;
-  opacity: 0;
+  background-color: white;
+  opacity: 0.1;
   border: none;
   transition: opacity 0.2s;
   cursor: pointer;
   font-size: 5em;
   width: 2em;
-  color: white;
+  color: black;
   outline: none;
 }
 #scroll-left:hover, #scroll-right:hover {
@@ -191,7 +195,7 @@
   border-bottom-left-radius: 0.5em;
 }
 #scroll-right {
-  left: calc(100% - 4em);
+  left: calc(100% - 2em);
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
 }
