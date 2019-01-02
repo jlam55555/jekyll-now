@@ -170,11 +170,11 @@ let projects = [
     image: './assets/fs.jpg',
     background: './assets/fs-full.jpg',
     title: 'Fruit Sensei',
-    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>.`,
+    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>, and won the Best Game Award.`,
     active: '2017',
     stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
     links: [
-      { title: 'See it', url: 'https://fruit-sensei.herokuapp.com/' },
+      { title: 'Play it', url: 'https://fruit-sensei.herokuapp.com/' },
       { title: 'Devpost', url: 'https://devpost.com/software/fruit-sensei' },
       { title: 'GitHub', url: 'https://github.com/FruitSensei/fruitsensei.github.io' }
     ]
@@ -187,7 +187,7 @@ let projects = [
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
     links: [
-      { title: 'See it', url: 'https://racing-game-csp.herokuapp.com' },
+      { title: 'Play it', url: 'https://racing-game-csp.herokuapp.com' },
       { title: 'GitHub', url: 'https://github.com/jlam55555/racing-game' }
     ]
   },
@@ -195,31 +195,59 @@ let projects = [
     imageText: 'WV',
     background: './assets/wv.jpg',
     title: 'Word Visualizer',
-    description: 'Word visualizer is a fun little app to save text as an image.'
+    description: 'Word visualizer is a tool to turn text into an image for downloading. Change colors and shading! Useful for replicating the styles of textual logos.',
+    active: '2016',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3' ],
+    links: [
+      { title: 'Use it', url: 'https://jlam55555.github.io/word-visualizer' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/word-visualizer' }
+    ]
   },
   {
     imageText: 'A.Io',
     background: './assets/ar.jpg',
     title: 'Agar.io Imitation',
-    description: 'Imitation game for Agar.io.'
+    description: 'Competitive multiplayer game inspired by Agar.io. Eat coins to grow, upgrade your stats, and bump into other players to damage them! Primarily developed during junior prom (morp) night.',
+    active: '2016',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'Socket.io' ],
+    links: [
+      { title: 'Play it', url: 'http://jlam55555.github.io/agario-ripoff' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/agario-ripoff' }
+    ]
   },
   {
     imageText: 'RT',
     background: './assets/rt.jpg',
     title: 'RingTune',
-    description: 'Make a little melody with RingTune!'
-  },
-  {
-    imageText: 'jkcd',
-    background: './assets/jkcd.jpg',
-    title: 'jkcd',
-    description: 'Java-based desktop GUI for viewing xkcd comics.'
+    description: 'Make a little melody with RingTune! The app guesses the next note based on common note melodies, and can generate random euphonious subtunes. Created during LIHacks 2016 and won the Most Entrepreneurial Award.',
+    active: '2016',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3' ],
+    links: [
+      { title: 'Use it', url: 'https://jlam55555.github.io/ringtune-website/' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/ringtune-website' }
+    ]
   },
   {
     imageText: '<span>xkcd</span><span>term</span>',
     background: './assets/xkcd-term.jpg',
     title: 'xkcd (Terminal)',
-    description: 'Terminal-based xkcd viewer for Linux.'
+    description: `Terminal-based xkcd viewer for Linux inspired by <a href='https://github.com/hakerdefo/pmxkcd' target='_blank'>pmxkcd</a>. Uses ImageMagick to display a comic in another window. This program allows you to view the current comic, a random comic, or the comic with a given ID.`,
+    active: '2016',
+    stack: [ 'Bash' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/jlam55555/xkcd-client' }
+    ]
+  },
+  {
+    imageText: 'jkcd',
+    background: './assets/jkcd.jpg',
+    title: 'jkcd',
+    description: `Java-based GUI for viewing xkcd comics. Was built as an improvement over the terminal-based <a href='https://github.com/jlam55555/xkcd-term' target='_blank'>xkcd-client</a>. Has all of the navigational functionalities of the xkcd website.`,
+    active: '2016',
+    stack: [ 'Java' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/jlam55555/jkcd' }
+    ]
   },
   {
     imageText: '<span>Pop</span><span>the</span><span>Lock</span>',
@@ -322,8 +350,10 @@ let projectActiveElem = document.querySelector('#project-active');
 let projectStackElem = document.querySelector('#project-stack');
 let projectLinksElem = document.querySelector('#project-links');
 const faClassMap = {
+  'Bash': 'fas fa-terminal',
   'CSS3': 'fab fa-css3',
   'HTML5': 'fab fa-html5',
+  'Java': 'fab fa-java',
   'JavaScript': 'fab fa-js',
   'MySQL': 'fas fa-database',
   'Node.JS': 'fab fa-node-js',
