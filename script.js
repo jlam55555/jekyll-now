@@ -135,8 +135,8 @@ HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, e
 let scrollContainer = document.querySelector('#project-scroller');
 let projects = [
   {
-    image: '',
-    background: '',
+    image: './assets/programath-logo.png',
+    background: './assets/programath-full.png',
     title: 'Programath',
     description: 'Jonathan\'s oldest surviving relic published onto the World Wide Web! This was created for the PLTW final project in the eighth grade, and features basic calculators, with expression parsing written in JavaScript. The website shows how HTML, CSS, JavaScript, and PHP (for a quiz) can be tied together to make a useful, presentable website.',
     active: '2014',
@@ -147,8 +147,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/atechlife-logo.png',
+    background: './assets/atechlife-full.png',
     title: 'A Tech Life',
     description: 'How much has modern (computing) technology assimilated itself into the lives of high schoolers by 2015? This is the final project for the year-long freshmen LENS project, which involved exploring history through a lens (theme) and location. The theme explored here was new productivity technologies in ancient China, and the website is an interactive demonstration into how vital non-essential digital technology has become&mdash; a fact that becomes ever more prevalent.',
     active: '2015',
@@ -251,6 +251,21 @@ let projects = [
     ]
   },
   {
+    image: './assets/mendelbrot-logo.png',
+    background: './assets/julia-full.jpg',
+    title: 'Assorted Fractals',
+    description: `Played around with fractals on a sick day. Found a lot of fun in learning the very interesting methods used to generate (or approximate) these curves, such as the chaos game for the Sierpinski gasket, the complex function for Julia and Mendelbrot sets, and the Thue-Morse sequence for the Koch curve.`,
+    active: '2016',
+    stack: [ 'JavaScript' ],
+    links: [
+      { title: 'Julia Set generator', url: 'https://jsfiddle.net/jlam55555/ay4nqfqL/5/' },
+      { title: 'Mendelbrot Set generator', url: 'https://jsfiddle.net/jlam55555/3bgvt3c4/2/' },
+      { title: 'Koch Curve Generator', url: 'https://jsfiddle.net/jlam55555/a1qshh6x/7/' },
+      { title: 'Chaos Game (Square)', url: 'https://jsfiddle.net/jlam55555/m0gyzpt0/22/' },
+      { title: 'Chaos Game (Hexagon)', url: 'https://jsfiddle.net/jlam55555/tkduy1o3/3/' },
+    ]
+  },
+  {
     imageText: '<span>uns</span><span>cram</span><span>ble</span>',
     background: './assets/unscrambler.jpg',
     title: 'Word Unscrambler',
@@ -274,8 +289,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/momath-2017-logo.png',
+    background: './assets/momath-2017-full.jpg',
     title: 'Assorted Math Exhibits 1',
     description: `Kid-friendly, educational exhibits for the MoMath Hackathon 2017. This includes a function grapher for the <a href='https://www.youtube.com/watch?v=RzDM5qzTZeE&feature=youtu.be' target='_blank'>Dynamic Wall</a> exhibit and a function regression game for the Math Square, a large touchscreen exhibit. The Crease Graph exhibit won first place for the Dynamic Wall; the Regression Game won finalist for the Math Square; and the Main Idea Notebook won the Wolfram Award. Created with <a href='https://github.com/all88keys/' target='_blank'>Chris Vassallo</a> and <a href='https://github.com/poobaloofa' target='_blank'>Julian Ivaldi</a>.`,
     active: '2017',
@@ -344,8 +359,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/optum-labs-logo.png',
+    background: './assets/mygut-full.png',
     title: 'myGUT X22 and RespHealth X22',
     description: `myGUT X22 and RespHealth X22 are revolutionary new products by Optum Labs of Florida, which allow patients to conveniently and privately take lab samples at home using a kit. The kit may then be mailed to the lab for analysis, and results are reported in only a day! Patients may receive the kit from an affiliated doctor or online. The website offers a way for patients to find nearby doctors or purchase the kit directly through Shopify.`,
     active: '2018',
@@ -356,8 +371,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/momath-2018-logo.png',
+    background: './assets/momath-2018-full.jpg',
     title: 'Assorted Math Exhibits 2',
     description: `Award-winning projects for the MoMath Hackathon 2018! Again kid-friendly, educational, and interactive, the 2017 team reprises with a Doppler Effect exhibit for the Dynamic Wall (finalist), a Slope Fields animation and Spirographs of Venus exhibit (winner) for the Math Square, a fractal augmented-reality app called MengAR (winner), and a Purple Pendulums simulation (winner). Developed with the LINK team.`,
     active: '2018',
@@ -367,8 +382,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/fluorination-logo.png',
+    background: './assets/fluorination-full.jpg',
     title: 'Fluorination',
     description: `There are many high-schoolers and college students crave information in an easy, intuitive way, as they cram for a test on the next day. There are many high-schoolers and college students who have that information, and are entirely capable of delivering it. The goal of Fluorination is to gamify information-sharing to incentivize this exchange, and provide a minimalistic interface that doesn't distract from the information. This was developed during HackCooper 2018, and won Best Use of Algolia. (Currently out of service because of trial software; will be edited soon.)`,
     active: '2018',
@@ -379,8 +394,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/regulators-logo.png',
+    background: './assets/regulators-full.png',
     title: 'The Regulators',
     description: `In African nations like Uganda, junk food is becoming abundant, lifestyles are becoming stagnant, and health education is lacking, leading to a dangerous rise in diabetes. The cost of modern blood glucose-monitoring devices, electrochemical glucometers, is prohibitive for many Ugandans, so a team of Cooper Union students created a low-cost alternative: chemical test strips that change color depending on the sugar level. The website documents the process and methods used, and an app was created to help analyze the test strips.`,
     active: '2018',
@@ -392,7 +407,7 @@ let projects = [
     ]
   },
   {
-    image: '',
+    imageText: 'CM',
     background: '',
     title: 'Consignmore',
     description: `It may take over a month for a consignor's art piece to go through the consignment process, and there may be no feedback from the auction house at all during that period. There's no way to know what preparation stage the piece is currently at, what the current bids are, or if the piece has been bought. Consignmore solves this problem by enabling data flow internally (in the auction house) and externally (to the consignors) in a simple, intuitive interface.`,
@@ -403,7 +418,7 @@ let projects = [
     ]
   },
   {
-    image: '',
+    imageText: '<span>Cooper</span><span>Union</span><span>Fusion</span>',
     background: '',
     title: 'Cooper Union Student Fusion',
     description: `Fusion website for Cooper Union student-managed websites. The old websites have an archaic PHP back-end. This projects aims to centralize and modularize the current student websites, such as the bookfair, locker management, student resource locator, club funding applications, and student council sites. Stay tuned.`,
@@ -414,8 +429,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/babap-logo.png',
+    background: './assets/babap-full.png',
     title: 'BaBaP',
     description: `Bits and Bytes and Peaces. What do you think when you see the word "navigate"? What about "navigating a blog"? They're two completely different things, aren't they? The concept for BaBaP was to make them the same: physical navigation of a blog. Instead of the linear relationship of a traditional blog, the posts will be mapped to a physical, 2D space that users can navigate in the traditional way: walking. This 2D remapping is currently being designed.`,
     active: '2018-present',
@@ -426,8 +441,8 @@ let projects = [
     ]
   },
   {
-    image: '',
-    background: '',
+    image: './assets/website-logo.png',
+    background: './assets/website-full.png',
     title: 'Jonathan Lam\'s Personal Website',
     description: `This website! You've seen it already. But it really is an evolution over the last few years. Every design choice is the result of many iterations, with the following criteria: is it fast? Is it consistent? Is it future-proof? Is it elegant? Vanilla JS and CSS were used to avoid the performance costs of libraries.`,
     active: '2017-present',
@@ -438,7 +453,7 @@ let projects = [
     ]
   },
   {
-    image: '',
+    imageText: '<span>Photo</span><span>Chooser</span>',
     background: '',
     title: 'Photo Chooser',
     description: `Imagine using machine learning to choose the best out of a set of photos. Instead of having to choose that best shots out of the thousands of photos taken at the last family gathering, let a computer choose for you based on the choices of others.`,
