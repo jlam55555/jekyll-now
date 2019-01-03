@@ -481,3 +481,20 @@ p, li {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* contact section */
+.contact-method.card {
+  transition: box-shadow 0.2s;
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}
+.contact-method.card:hover {
+  box-shadow: 0 0 5px 0 darkslategrey;
+}
+.contact-method.card > .card-header, .contact-method.card > .card-body {
+  padding: 1em;
+}
+.contact-method.card .secondary {
+  color: darkgrey;
+  font-size: smaller;
+}
