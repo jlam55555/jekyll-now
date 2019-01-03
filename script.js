@@ -81,6 +81,7 @@ let elements = [
   document.querySelector('#technologies'),
   document.querySelector('#contact')
 ];
+let currentSection = 0;
 let scrollHandler = () => {
   let i;
   for(i = 0; i < elements.length; i++) {
@@ -89,6 +90,7 @@ let scrollHandler = () => {
     }
   }
   i = i == 0 ? 0 : i-1;
+  currentSection = i;
   navButtons[i].classList.add('active');
   navButtons.forEach((button, index) => {
     if(index !== i) button.classList.remove('active');
@@ -648,4 +650,15 @@ let scrollButtonHandler = left => {
 };
 document.querySelector('#scroll-left').addEventListener('click', scrollButtonHandler.bind(null, true));
 document.querySelector('#scroll-right').addEventListener('click', scrollButtonHandler.bind(null, false));
+
+// allow scrolling by left/right arrows
+document.addEventListener('keydown', event => {
+  if((currentSection == 1 || currentSection == 2) && (event.which == 37 || event.which == 39)) {
+    if(event.which == 37) {
+      getCenterItem().elem.previousSibling.click();
+    } else {
+      getCenterItem().elem.nextSibling.click();
+    }    
+  }
+});
 // END CAROUSEL BEHAVIOR
