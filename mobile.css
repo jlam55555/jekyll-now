@@ -394,6 +394,7 @@ p, li {
 #project-lightbox {
   background-position: 0 0, center center !important;
   background-size: auto, cover !important;
+  background-attachment: fixed, fixed !important;
   max-width: 100%;
   padding: 5em 0;
   color: white;

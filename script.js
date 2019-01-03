@@ -277,8 +277,8 @@ let projects = [
     image: '',
     background: '',
     title: 'Assorted Math Exhibits 1',
-    description: `Projects for the MoMath Hackathon 2017`,
-    active: '2018',
+    description: `Kid-friendly, educational exhibits for the MoMath Hackathon 2017. This includes a function grapher for the <a href='https://www.youtube.com/watch?v=RzDM5qzTZeE&feature=youtu.be' target='_blank'>Dynamic Wall</a> exhibit and a function regression game for the Math Square, a large touchscreen exhibit. The Crease Graph exhibit won first place for the Dynamic Wall; the Regression Game won finalist for the Math Square; and the Main Idea Notebook won the Wolfram Award. Created with <a href='https://github.com/all88keys/' target='_blank'>Chris Vassallo</a> and <a href='https://github.com/poobaloofa' target='_blank'>Julian Ivaldi</a>.`,
+    active: '2017',
     stack: [ 'JavaScript', 'Java', 'Mathematica', 'MoMath SDK' ],
     links: [
       { title: 'GitHub', url: 'https://github.com/poobaloofa/howitfeelstochew5gum' },
@@ -288,7 +288,7 @@ let projects = [
     image: './assets/fs.jpg',
     background: './assets/fs-full.jpg',
     title: 'Fruit Sensei',
-    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>, and won the Best Game Award.`,
+    description: `Slice that fruit with your &hellip; phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>, and won the Best Game Award.`,
     active: '2017',
     stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
     links: [
@@ -347,7 +347,7 @@ let projects = [
     image: '',
     background: '',
     title: 'myGUT X22 and RespHealth X22',
-    description: `Websites developed for Optum Labs`,
+    description: `myGUT X22 and RespHealth X22 are revolutionary new products by Optum Labs of Florida, which allow patients to conveniently and privately take lab samples at home using a kit. The kit may then be mailed to the lab for analysis, and results are reported in only a day! Patients may receive the kit from an affiliated doctor or online. The website offers a way for patients to find nearby doctors or purchase the kit directly through Shopify.`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Vue.JS', 'Java' ],
     links: [
@@ -359,7 +359,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Assorted Math Exhibits 2',
-    description: `Projects for the MoMath Hackathon 2018.`,
+    description: `Award-winning projects for the MoMath Hackathon 2018! Again kid-friendly, educational, and interactive, the 2017 team reprises with a Doppler Effect exhibit for the Dynamic Wall (finalist), a Slope Fields animation and Spirographs of Venus exhibit (winner) for the Math Square, a fractal augmented-reality app called MengAR (winner), and a Purple Pendulums simulation (winner). Developed with the LINK team.`,
     active: '2018',
     stack: [ 'JavaScript', 'Java', 'AR.JS', 'MoMath SDK' ],
     links: [
@@ -370,7 +370,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Fluorination',
-    description: `HackCooper project. (Not functional -- will be soon). Won Best Use of Algolia award. Created an Amazon Alexa skill to go along with it.`,
+    description: `There are many high-schoolers and college students crave information in an easy, intuitive way, as they cram for a test on the next day. There are many high-schoolers and college students who have that information, and are entirely capable of delivering it. The goal of Fluorination is to gamify information-sharing to incentivize this exchange, and provide a minimalistic interface that doesn't distract from the information. This was developed during HackCooper 2018, and won Best Use of Algolia. (Currently out of service because of trial software; will be edited soon.)`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Vue.JS', 'Algolia', 'Alexa' ],
     links: [
@@ -382,7 +382,7 @@ let projects = [
     image: '',
     background: '',
     title: 'The Regulators',
-    description: `Website and mobile (Android) application developed for a school project.`,
+    description: `In African nations like Uganda, junk food is becoming abundant, lifestyles are becoming stagnant, and health education is lacking, leading to a dangerous rise in diabetes. The cost of modern blood glucose-monitoring devices, electrochemical glucometers, is prohibitive for many Ugandans, so a team of Cooper Union students created a low-cost alternative: chemical test strips that change color depending on the sugar level. The website documents the process and methods used, and an app was created to help analyze the test strips.`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'React.JS', 'Android', 'Java' ],
     links: [
@@ -395,7 +395,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Consignmore',
-    description: ``,
+    description: `It may take over a month for a consignor's art piece to go through the consignment process, and there may be no feedback from the auction house at all during that period. There's no way to know what preparation stage the piece is currently at, what the current bids are, or if the piece has been bought. Consignmore solves this problem by enabling data flow internally (in the auction house) and externally (to the consignors) in a simple, intuitive interface.`,
     active: '2018-present',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Angular', 'Node.JS', 'PostgreSQL', 'SSE' ],
     links: [
@@ -406,7 +406,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Cooper Union Student Fusion',
-    description: `Fusion website for Cooper Union student websites. Stay tuned.`,
+    description: `Fusion website for Cooper Union student-managed websites. The old websites have an archaic PHP back-end. This projects aims to centralize and modularize the current student websites, such as the bookfair, locker management, student resource locator, club funding applications, and student council sites. Stay tuned.`,
     active: 'Spring 2019-Summer 2019',
     stack: [ 'MERN' ],
     links: [
@@ -417,7 +417,7 @@ let projects = [
     image: '',
     background: '',
     title: 'BaBaP',
-    description: `Bits and Bytes and Peaces.`,
+    description: `Bits and Bytes and Peaces. What do you think when you see the word "navigate"? What about "navigating a blog"? They're two completely different things, aren't they? The concept for BaBaP was to make them the same: physical navigation of a blog. Instead of the linear relationship of a traditional blog, the posts will be mapped to a physical, 2D space that users can navigate in the traditional way: walking. This 2D remapping is currently being designed.`,
     active: '2018-present',
     stack: [ 'HTML5', 'JavaScript', 'CSS3', 'PHP7' ],
     links: [
@@ -429,7 +429,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Jonathan Lam\'s Personal Website',
-    description: `This website! (Note that the URL may change.)`,
+    description: `This website! You've seen it already. But it really is an evolution over the last few years. Every design choice is the result of many iterations, with the following criteria: is it fast? Is it consistent? Is it future-proof? Is it elegant? Vanilla JS and CSS were used to avoid the performance costs of libraries.`,
     active: '2017-present',
     stack: [ 'Javascript', 'HTML5', 'CSS3' ],
     links: [
@@ -441,7 +441,7 @@ let projects = [
     image: '',
     background: '',
     title: 'Photo Chooser',
-    description: `Using machine learning to choose the best out of a set of photos.`,
+    description: `Imagine using machine learning to choose the best out of a set of photos. Instead of having to choose that best shots out of the thousands of photos taken at the last family gathering, let a computer choose for you based on the choices of others.`,
     active: 'future (no timeline planned yet)',
     stack: [ 'ML' ],
     links: [ ]
