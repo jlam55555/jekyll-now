@@ -31,7 +31,6 @@ let resizeHandler = () => {
     });
   }
   oldWidth = windowWidth;
-  desktopNavbar.style.height = windowHeight + 'px';
 };
 resizeHandler();
 window.addEventListener('resize', resizeHandler);

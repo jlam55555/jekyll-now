@@ -76,8 +76,16 @@
 #nav-bar {
   width: auto;
   background-color: transparent;
+  margin-left: -10em;
+  transition: margin-left 0.2s;
+  padding: 0;
+}
+#nav-bar:hover {
+  margin-left: 0;
 }
 #nav-bar .desktop {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,32 +93,21 @@
 }
 #nav-bar a {
   display: block;
-  width: 1em;
-  height: 1em;
-  border-radius: 100%;
-  border: 5px solid grey;
-  margin: 0.5em 0.5em 2.5em 0.5em;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 0;
-  transition:
-    width 0.1s,
-    height 0.1s,
-    margin 0.1s;
-}
-#nav-bar a:last-child {
-  margin-bottom: 0;
-}
-#nav-bar a:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-}
-#nav-bar a.active {
-  width: 2em;
+  width: 11em;
   height: 2em;
-  margin: 0 0 2em 0;
+  text-align: right;
+  border-right: 1em solid white;
+  background-color: whitesmoke;
+  transition: border-right-color 0.2s;
 }
-#nav-bar a:last-child.active {
-  margin-bottom: -0.5em;
+#nav-bar a:nth-child(1).active { border-right-color: #ef9a9a; }
+#nav-bar a:nth-child(2).active { border-right-color: #ffcc80; }
+#nav-bar a:nth-child(3).active { border-right-color: #95d6a7; }
+#nav-bar a:nth-child(4).active { border-right-color: #90caf9; }
+#nav-bar a:nth-child(5).active { border-right-color: #ce93d8; }
+#nav-bar a:hover {
+  background-color: white;
+  cursor: pointer;
 }
 .video-separator {
   position: fixed;
