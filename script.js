@@ -462,6 +462,7 @@ let projects = [
     links: [ ]
   },
 ];
+let preloadedProjectImages = [];
 projects.forEach((project, index) => {
   let div = document.createElement('div');
   div.classList.add('project-icon');
@@ -484,8 +485,9 @@ projects.forEach((project, index) => {
   scrollContainer.appendChild(div);
   
   // preload backgrounds
-  let lazyLoadedImage = new Image();
-  lazyLoadedImage.src = project.background;
+  let preloadedProjectImage = new Image();
+  preloadedProjectImage.src = project.background;
+  preloadedProjectImages.push(preloadedProjectImage);
 });
 
 let n = projects.length;
