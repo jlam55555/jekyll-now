@@ -134,14 +134,27 @@ HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, e
 let scrollContainer = document.querySelector('#project-scroller');
 let projects = [
   {
-    image: './assets/eis.jpg',
-    background: './assets/eis-full.jpg',
-    title: 'Everything is Sheep',
-    description: 'Everything is Sheep (EiS) is a blog comprising of essays about high school and programming, and is the successor to The Homework Life (THL). While THL was written in 2015 in response to academic-literary dread, this one was written on a whim. All of the posts from THL were migrated over. A major goal of EiS was to create a sleeker blog interface and move the tech stack over from PHP (LAMP) to JavaScript (Node.js back-end).',
-    active: '2017-2018',
-    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL' ],
+    image: '',
+    background: '',
+    title: 'Programath',
+    description: 'Jonathan\'s oldest surviving relic published onto the World Wide Web! This was created for the PLTW final project in the eighth grade, and features basic calculators, with expression parsing written in JavaScript. The website shows how HTML, CSS, JavaScript, and PHP (for a quiz) can be tied together to make a useful, presentable website.',
+    active: '2014',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'PHP' ],
     links: [
-      { title: 'See it', url: 'https://everything-is-sheep.herokuapp.com' }
+      { title: 'See it', url: 'http://www.programath.co.nf' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/programath' }
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'A Tech Life',
+    description: 'How much has modern (computing) technology assimilated itself into the lives of high schoolers by 2015? This is the final project for the year-long freshmen LENS project, which involved exploring history through a lens (theme) and location. The theme explored here was new productivity technologies in ancient China, and the website is an interactive demonstration into how vital non-essential digital technology has become&mdash; a fact that becomes ever more prevalent.',
+    active: '2015',
+    stack: [ 'HTML5', 'JavaScript', 'CSS3', 'PHP' ],
+    links: [
+      { title: 'See it', url: 'http://www.atechlife.co.nf/' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/ATechLife' }
     ]
   },
   {
@@ -153,42 +166,6 @@ let projects = [
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'PHP', 'MySQL' ],
     links: [
       { title: 'See it', url: 'http://www.thehomeworklife.co.nf' }
-    ]
-  },
-  {
-    image: './assets/srre.jpg',
-    background: './assets/srre-full.jpg',
-    title: 'Safe Rides of Redding and Easton',
-    description: 'The official web-app for the Safe Rides service for the ER9 region! The service provides high schoolers with a trusted, reliable way home on late Friday and Saturday nights. The web-app is a website which can easily be saved as a web-app on iOS for easy access, and offers anything a volunteer or ride-requester needs to use the service. (Currently not in use by the service, although that may change.)',
-    active: '2017-2018',
-    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL', 'Bootstrap', 'Socket.io' ],
-    links: [
-      { title: 'See it', url: 'https://safe-rides-redding-easton.herokuapp.com' }
-    ]
-  },
-  {
-    image: './assets/fs.jpg',
-    background: './assets/fs-full.jpg',
-    title: 'Fruit Sensei',
-    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>, and won the Best Game Award.`,
-    active: '2017',
-    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
-    links: [
-      { title: 'Play it', url: 'https://fruit-sensei.herokuapp.com/' },
-      { title: 'Devpost', url: 'https://devpost.com/software/fruit-sensei' },
-      { title: 'GitHub', url: 'https://github.com/FruitSensei/fruitsensei.github.io' }
-    ]
-  },
-  {
-    image: './assets/mrg.jpg',
-    background: './assets/mrg-full.jpg',
-    title: 'Multiracer Game',
-    description: `Use your phone to steer a car on the screen. Play with up to three of your friends. This uses JavaScript's deviceorientation event to track your phone's orientation. Created for the AP CSP Create Performance Task with <a href='https://github.com/rdk750' target='_blank'>Rahul Kiefer</a>.`,
-    active: '2018',
-    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
-    links: [
-      { title: 'Play it', url: 'https://racing-game-csp.herokuapp.com' },
-      { title: 'GitHub', url: 'https://github.com/jlam55555/racing-game' }
     ]
   },
   {
@@ -207,7 +184,7 @@ let projects = [
     imageText: 'A.Io',
     background: './assets/ar.jpg',
     title: 'Agar.io Imitation',
-    description: 'Competitive multiplayer game inspired by Agar.io. Eat coins to grow, upgrade your stats, and bump into other players to damage them! Primarily developed during junior prom (morp) night.',
+    description: 'Online multiplayer game inspired by Agar.io. Eat coins to grow, upgrade your stats, and bump into other players to damage them! Primarily developed during junior prom (morp) night.',
     active: '2016',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'Socket.io' ],
     links: [
@@ -253,31 +230,220 @@ let projects = [
     imageText: '<span>Pop</span><span>the</span><span>Lock</span>',
     background: './assets/ptl.jpg',
     title: 'Pop the Lock',
-    description: 'Simple implementation of Pop the Lock'
+    description: `Simple implementation of Pop the Lock. Tap the space bar to try to pop the lock. Try to get the highest streak! Uses CSS for lightweight, minimalistic animations. Inspired by Jacob Wunder's <a href='http://jacobwunder.com/tap-tap-pop/' target='_blank'>Tap Tap Pop</a>.`,
+    active: '2016',
+    stack: [ 'HTML5', 'CSS3', 'JavaScript' ],
+    links: [
+      { title: 'Play it', url: 'https://jlam55555.github.io/pop-the-lock' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/pop-the-lock' }
+    ]
   },
   {
     imageText: 'Noted',
     background: './assets/noted.jpg',
     title: 'Noted: A Chrome Extension',
-    description: 'Keep tabs on your shopping list or whatever.'
+    description: 'Keep tabs on your shopping list, homework assignments, or daily job demands with this convenient Google Chrome extension! You can access it from the icon or from the new tab page. Your notes save automatically as you type, and will persist through browser sessions.',
+    active: '2016',
+    stack: [ 'HTML5', 'JavaScript', 'Google Chrome' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/jlam55555/noted-chrome-extension' }
+    ]
   },
   {
     imageText: '<span>uns</span><span>cram</span><span>ble</span>',
     background: './assets/unscrambler.jpg',
     title: 'Word Unscrambler',
-    description: 'Look up anagrams of a word, or play a game to find them yourself!'
+    description: `Look up anagrams of a word, or play a game to find them yourself! Fun for word games (you cheater!) or to expand your vocabulary. This tool uses the <a href='https://www.github.com/dwyl/english-words' target='_blank'>@dwyl/english-words</a> as an English dictionary.`,
+    active: '2016',
+    stack: [ 'JavaScript' ],
+    links: [
+      { title: 'Use it', url: 'http://jonlamdev.com/unscrambler/' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/unscrambler' }
+    ]
   },
   {
     imageText: '<span>Simple</span><span>New</span><span>Tab</span>',
     background: './assets/snt.jpg',
     title: 'Simple New Tab: A Chrome Extension',
-    description: 'Tired of the new tab page? Make it blank.'
+    description: 'Tired of the new tab page? Make it your own. You can choose to leave it blank, fill it with a color, or replace it with an image. The single control is intuitive and is hidden when not in use so you can enjoy your personalized newtab page.',
+    active: '2016',
+    stack: [ 'HTML5', 'JavaScript', 'CSS3', 'Google Chrome' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/jlam55555/simple-new-tab' }
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Assorted Math Exhibits 1',
+    description: `Projects for the MoMath Hackathon 2017`,
+    active: '2018',
+    stack: [ 'JavaScript', 'Java', 'Mathematica', 'MoMath SDK' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/poobaloofa/howitfeelstochew5gum' },
+    ]
+  },
+  {
+    image: './assets/fs.jpg',
+    background: './assets/fs-full.jpg',
+    title: 'Fruit Sensei',
+    description: `Slice that fruit with your ... phone! This website uses JavaScript's deviceorientationevent on a mobile device to control a virtual katana. Created during MLH StuyHacks LHD 2017 with <a href='https://prathgan.github.io/' target='_blank'>Pratham Gandhi</a> and <a href='https://navidmx.com/' target='_blank'>Navid Mamoon</a>, and won the Best Game Award.`,
+    active: '2017',
+    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
+    links: [
+      { title: 'Play it', url: 'https://fruit-sensei.herokuapp.com/' },
+      { title: 'Devpost', url: 'https://devpost.com/software/fruit-sensei' },
+      { title: 'GitHub', url: 'https://github.com/FruitSensei/fruitsensei.github.io' }
+    ]
   },
   {
     image: './assets/bb.jpg',
     background: './assets/bb-full.jpg',
     title: 'JBHS Bowling Website',
-    description: 'Statistics for the JBHS CIBL Bowling Team of the 2017-2018 season.'
+    description: 'Statistics for the JBHS CIBL Bowling Team of the 2017-2018 season. This website displays team statistics and uses a heuristic formula to estimate which players will be on Varsity in the subsequent week. Users can view both individual and team statistics, which include measures of center, spread, and improvement. (This website was specific to the 2017-2018 season and is not being used for the most recent JBHS Bowling Team.)',
+    active: '2017-2018',
+    stack: [ 'HTML5', 'CSS3', 'JavaScript', 'Angular' ],
+    links: [
+      { title: 'See it', url: 'https://jbhsbowling.github.io' },
+      { title: 'GitHub', url: 'https://www.github.com/jbhsbowling/jbhsbowling.github.io' }
+    ]
+  },
+  {
+    image: './assets/srre.jpg',
+    background: './assets/srre-full.jpg',
+    title: 'Safe Rides of Redding and Easton',
+    description: 'The official web-app for the Safe Rides service for the ER9 region! The service provides high schoolers with a trusted, reliable way home on late Friday and Saturday nights. The web-app is a website which can easily be saved as a web-app on iOS for easy access, and offers anything a volunteer or ride-requester needs to use the service. (Currently not in use by the service, although that may change.)',
+    active: '2017-2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL', 'Bootstrap', 'Socket.io' ],
+    links: [
+      { title: 'See it', url: 'https://safe-rides-redding-easton.herokuapp.com' }
+    ]
+  },
+  {
+    image: './assets/eis.jpg',
+    background: './assets/eis-full.jpg',
+    title: 'Everything is Sheep',
+    description: 'Everything is Sheep (EiS) is a blog comprising of essays about high school and programming, and is the successor to The Homework Life (THL). While THL was written in 2015 in response to academic-literary dread, this one was written on a whim. All of the posts from THL were migrated over. A major goal of EiS was to create a sleeker blog interface and move the tech stack over from PHP (LAMP) to JavaScript (Node.js back-end).',
+    active: '2017-2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL' ],
+    links: [
+      { title: 'See it', url: 'https://everything-is-sheep.herokuapp.com' }
+    ]
+  },
+  {
+    image: './assets/mrg.jpg',
+    background: './assets/mrg-full.jpg',
+    title: 'Multiracer Game',
+    description: `Use your phone to steer a car on the screen. Play with up to three of your friends. This uses JavaScript's deviceorientation event to track your phone's orientation. Created for the AP CSP Create Performance Task with <a href='https://github.com/rdk750' target='_blank'>Rahul Kiefer</a>.`,
+    active: '2018',
+    stack: [ 'JavaScript', 'HTML5', 'THREE.JS', 'Socket.io' ],
+    links: [
+      { title: 'Play it', url: 'https://racing-game-csp.herokuapp.com' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/racing-game' }
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'myGUT X22 and RespHealth X22',
+    description: `Websites developed for Optum Labs`,
+    active: '2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Vue.JS', 'Java' ],
+    links: [
+      { title: 'See myGUT X22', url: 'https://www.mygutx22.com' },
+      { title: 'See RespHealth X21', url: 'https://www.resphealthx21.com' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Assorted Math Exhibits 2',
+    description: `Projects for the MoMath Hackathon 2018.`,
+    active: '2018',
+    stack: [ 'JavaScript', 'Java', 'AR.JS', 'MoMath SDK' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/jlam55555/howitfeelstochew6gum' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Fluorination',
+    description: `HackCooper project. (Not functional -- will be soon). Won Best Use of Algolia award. Created an Amazon Alexa skill to go along with it.`,
+    active: '2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Vue.JS', 'Algolia', 'Alexa' ],
+    links: [
+      { title: 'See it', url: 'https://fluorination-server.herokuapp.com' },
+      { title: 'GitHub', url: 'https://github.com/FluorinationNation/fluorination-server' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'The Regulators',
+    description: `Website and mobile (Android) application developed for a school project.`,
+    active: '2018',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'React.JS', 'Android', 'Java' ],
+    links: [
+      { title: 'See the website', url: 'https://theregulators.github.io' },
+      { title: 'GitHub (website)', url: 'https://github.com/theregulators/website-source' },
+      { title: 'GitHub (app)', url: 'https://www.github.com/theregulators/regulators-android' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Consignmore',
+    description: ``,
+    active: '2018-present',
+    stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Angular', 'Node.JS', 'PostgreSQL', 'SSE' ],
+    links: [
+      { title: 'See it', url: 'https://consignmore.herokuapp.com' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Cooper Union Student Fusion',
+    description: `Fusion website for Cooper Union student websites. Stay tuned.`,
+    active: 'Spring 2019-Summer 2019',
+    stack: [ 'MERN' ],
+    links: [
+      { title: 'GitHub', url: 'https://github.com/archwa/fusion' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'BaBaP',
+    description: `Bits and Bytes and Peaces.`,
+    active: '2018-present',
+    stack: [ 'HTML5', 'JavaScript', 'CSS3', 'PHP7' ],
+    links: [
+      { title: 'See it', url: 'http://babap.co.nf/' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/babap-blog' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Jonathan Lam\'s Personal Website',
+    description: `This website! (Note that the URL may change.)`,
+    active: '2017-present',
+    stack: [ 'Javascript', 'HTML5', 'CSS3' ],
+    links: [
+      { title: 'See it', url: '#' },
+      { title: 'GitHub', url: 'https://jlam55555.github.io/' },
+    ]
+  },
+  {
+    image: '',
+    background: '',
+    title: 'Photo Chooser',
+    description: `Using machine learning to choose the best out of a set of photos.`,
+    active: 'future (no timeline planned yet)',
+    stack: [ 'ML' ],
+    links: [ ]
   },
 ];
 projects.forEach((project, index) => {
@@ -350,8 +516,14 @@ let projectActiveElem = document.querySelector('#project-active');
 let projectStackElem = document.querySelector('#project-stack');
 let projectLinksElem = document.querySelector('#project-links');
 const faClassMap = {
+  'Algolia': 'fab fa-algolia',
+  'Android': 'fab fa-android',
+  'Angular': 'fab fa-angular',
   'Bash': 'fas fa-terminal',
+  'CSS': 'fab fa-css3',
   'CSS3': 'fab fa-css3',
+  'Google Chrome': 'fab fa-chrome',
+  'HTML': 'fab fa-html5',
   'HTML5': 'fab fa-html5',
   'Java': 'fab fa-java',
   'JavaScript': 'fab fa-js',
@@ -359,6 +531,11 @@ const faClassMap = {
   'Node.JS': 'fab fa-node-js',
   'PostgreSQL': 'fas fa-database',
   'PHP': 'fab fa-php',
+  'PHP7': 'fab fa-php',
+  'React.JS': 'fab fa-react',
+  'SSE': 'fas fa-server',
+  'Socket.io': 'fas fa-server',
+  'Vue.JS': 'fab fa-vuejs',
 };
 let changeProjectBox = index => {
   let project = projects[index];
@@ -368,7 +545,7 @@ let changeProjectBox = index => {
 
   projectActiveElem.textContent = project.active;
   projectStackElem.innerHTML = (project.stack || []).map(projectTechnology => `<span class='stack-card unselectable'><i class='${faClassMap[projectTechnology] || 'fas fa-code'}'></i> <span>${projectTechnology}</span></span>`).join('');
-  projectLinksElem.innerHTML = (project.links || []).map(projectLink => `<a href='${projectLink.url}' target='_blank'>${projectLink.title} <i class='fas fa-external-link-square-alt'></i></a>`).join(' | ');
+  projectLinksElem.innerHTML = (project.links || []).map(projectLink => `<a href='${projectLink.url}' target='_blank'>${projectLink.title}</a>`).join(' | ');
 };
 changeProjectBox(cur);
 
