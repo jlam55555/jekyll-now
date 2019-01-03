@@ -488,6 +488,7 @@ projects.forEach((project, index) => {
   let preloadedProjectImage = new Image();
   preloadedProjectImage.src = project.background;
   preloadedProjectImages.push(preloadedProjectImage);
+  console.log('preloading image ' + index);
 });
 
 let n = projects.length;
