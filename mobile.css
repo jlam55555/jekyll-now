@@ -423,7 +423,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   scroll-snap-type: mandatory; /* Firefox */  
   -ms-scroll-snap-type: mandatory; /* IE/Edge */  
   -webkit-scroll-snap-type: mandatory; /* Safari */  
-  -webkit-scroll-snap-destination: 0% 0%;  
+  -webkit-scroll-snap-destination: 0% 50%;  
   -webkit-overflow-scrolling: touch; /* important for iOS */ 
 }
 /*#project-scroller::-webkit-scrollbar {
@@ -439,9 +439,9 @@ p, li, div, h1, h2, h3, h4, h5 {
   align-items: center;
 
   /*scroll-snap-align: center;*/
-  scroll-snap-align: start; /* latest (Chrome 69+) */  
-  scroll-snap-coordinate: 0% 0%; /* older (Firefox/IE) */  
-  -webkit-scroll-snap-coordinate: 0% 0%; /* older (Safari) */ 
+  scroll-snap-align: center; /* latest (Chrome 69+) */  
+  scroll-snap-coordinate: 0% 50%; /* older (Firefox/IE) */  
+  -webkit-scroll-snap-coordinate: 0% 50%; /* older (Safari) */ 
   vertical-align: top;
 }
 .project-icon > img, .project-icon > .image-text {
