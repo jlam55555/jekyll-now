@@ -417,7 +417,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   scroll-snap-type: mandatory;
   scroll-snap-points-x: repeat(130px);
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  /*scroll-behavior: smooth;*/
   -webkit-overflow-scrolling: touch;
 }
 /*#project-scroller::-webkit-scrollbar {
