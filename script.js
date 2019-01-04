@@ -587,6 +587,10 @@ debounceScrollHandler = elem => {
   changeProjectBox((elem || getCenterItem().elem).dataset.index);
   if(elem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
+    scrollContainer.scrollTo({
+      left: scrollToPos,
+      behavior: 'smooth'
+    });
     //scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad');
   }
 /*  if(throttleLock) return;
@@ -655,7 +659,7 @@ scrollContainer.addEventListener('scroll', _ => {
   //carouselScrollHandler();
 
   clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(debounceScrollHandler, 500);
+  debounceTimeout = setTimeout(debounceScrollHandler, 100);
 });
 
 // autoplay while pristine
@@ -695,12 +699,14 @@ document.querySelector('#scroll-right').addEventListener('click', scrollButtonHa
 
 // allow scrolling by left/right arrows
 document.addEventListener('keydown', event => {
-  if((currentSection == 1 || currentSection == 2) && (event.which == 37 || event.which == 39)) {
+  let cur = getCenterItem().index;
+  if((currentSection == 1 || currentSection == 2) && ((event.which == 37 && cur !== 0) || (event.which == 39 && cur !== n - 1))) {
     if(event.which == 37) {
       getCenterItem().elem.previousSibling.click();
     } else {
       getCenterItem().elem.nextSibling.click();
     }    
+    event.preventDefault();
   }
 });
 // END CAROUSEL BEHAVIOR
