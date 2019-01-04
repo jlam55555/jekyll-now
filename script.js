@@ -533,6 +533,7 @@ let getCenterItem = _ => {
       icon.classList.remove('centered');
     }
   });
+  console.log(closest, closestElem);
   return {
     index: closest,
     elem: closestElem
@@ -583,7 +584,8 @@ changeProjectBox(cur);
 let debounceTimeout;
 let autoplayInterval;
 debounceScrollHandler = elem => {
-  if(throttleLock) return;
+  changeProjectBox(getCenterItem().elem.dataset.index);
+/*  if(throttleLock) return;
   let closestElem = (elem === 'resize') ? currentElem : elem || getCenterItem().elem;
   if(closestElem.dataset.index != cur) {
     cur = closestElem.dataset.index;
@@ -599,12 +601,12 @@ debounceScrollHandler = elem => {
     });
   } else {
     throttleLock = false;
-  }
+  }*/
 };
-window.addEventListener('resize', _ => {
+/*window.addEventListener('resize', _ => {
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(debounceScrollHandler.bind(null, 'resize'), 100);
-});
+});*/
 
 // main scroll handler
 let currentElem = getCenterItem().elem;
@@ -620,11 +622,11 @@ let carouselScrollHandler = _ => {
   let right = n - 1 - ind;
   let diff = right - left;
 
-  if((n % 2 == 0 && Math.abs(diff) > 2) || (n % 2 == 1 && Math.abs(diff) > 0)) {
+  /*if((n % 2 == 0 && Math.abs(diff) > 2) || (n % 2 == 1 && Math.abs(diff) > 0)) {
     if(diff < 0) {
       // more on left than right
       for(let i = 0; i < -diff / 2; i++) {
-        /* maintaining scroll position picked up from https://codepen.io/ArtemGordinsky/pen/CevBD */
+        // maintaining scroll position picked up from https://codepen.io/ArtemGordinsky/pen/CevBD 
         let currentOffset = scrollContainer.lastChild.offsetLeft - scrollContainer.scrollLeft;
         scrollContainer.appendChild(scrollContainer.removeChild(scrollContainer.firstChild));
         scrollContainer.scrollLeft = scrollContainer.lastChild.previousSibling.offsetLeft - currentOffset;
@@ -638,7 +640,7 @@ let carouselScrollHandler = _ => {
       }
     }
     
-  }
+  }*/
 
   // switch to this for primitive throttling
   //setTimeout(_ => throttleLock = false, 50);
@@ -654,12 +656,12 @@ scrollContainer.addEventListener('scroll', _ => {
 
 // autoplay while pristine
 autoplayInterval = setInterval(_ => {
-  if(throttleLock) return;
+  /*if(throttleLock) return;
   throttleLock = true;
   scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + sampleElementWidth(), 200, 'easeInOutQuad', _ => {
     throttleLock = false;
     carouselScrollHandler();
-  });
+  });*/
 }, 5000);
 
 // scroll left and right

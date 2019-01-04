@@ -147,10 +147,13 @@
   }
 }
 
+#project-scroller {
+  padding: 0 calc(50% - 129px);
+  height: 275px;
+}
 .project-icon {
-  flex-basis: 258px;
-  width: 258px;
-  height: 258px;
+  width: 275px;
+  height: 275px;
 }
 .project-icon > img, .project-icon > .image-text {
   width: 128px;
