@@ -403,7 +403,7 @@ p, li, div, h1, h2, h3, h4, h5 {
 #project-scroller {
   width: 100%;
   max-width: 100%;
-  height: 400px;
+  height: 130px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -458,7 +458,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   font-size: 20px;
 }
 .project-icon.centered > img, .project-icon.centered > .image-text {
-  transform: scale(1.5, 1.5);
+  /*transform: scale(1.5, 1.5);*/
   box-shadow: 0 0 25px 1px grey;
 }
 /*#scroll-left, #scroll-right {
