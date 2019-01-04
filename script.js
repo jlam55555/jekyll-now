@@ -651,12 +651,12 @@ let carouselScrollHandler = _ => {
 
   throttleLock = false;
 };
-scrollContainer.addEventListener('scroll', _ => {
+/*scrollContainer.addEventListener('scroll', _ => {
   carouselScrollHandler();
 
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(debounceScrollHandler, 500);
-});
+});*/
 
 // autoplay while pristine
 autoplayInterval = setInterval(_ => {
