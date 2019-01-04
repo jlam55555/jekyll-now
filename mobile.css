@@ -415,7 +415,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   overflow: -moz-scrollbars-none;*/
 
   scroll-snap-type: mandatory;
-  scroll-snap-points-x: repeat(300px);
+  scroll-snap-points-x: repeat(130px);
   scroll-snap-type: x mandatory;
 }
 /*#project-scroller::-webkit-scrollbar {
@@ -459,11 +459,12 @@ p, li, div, h1, h2, h3, h4, h5 {
   transform: scale(1.5, 1.5);
   box-shadow: 0 0 25px 1px grey;
 }
-#scroll-left, #scroll-right {
+/*#scroll-left, #scroll-right {
   display: none;
-}
-#project-box > #project-title {
+}*/
+#project-box #project-title {
   margin-bottom: 0;
+  display: inline-block;
 }
 #project-box > #project-active {
   color: lightgrey;

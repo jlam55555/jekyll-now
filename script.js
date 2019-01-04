@@ -118,12 +118,13 @@ HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, e
   const destinationOffsetToScroll = Math.floor(destination);
 
   const scroll = () => {
+    console.log(this.scrollLeft, destinationOffsetToScroll);
     const now = 'now' in window.performance ? performance.now() : new Date().getTime();
     const time = Math.min(1, ((now - startTime) / duration));
     const timeFunction = easings[easing](time);
     this.scrollTo(Math.ceil((timeFunction * (destinationOffsetToScroll - start)) + start), 0);
 
-    if (this.scrollLeft === destinationOffsetToScroll) {
+    if (Math.abs(this.scrollLeft - destinationOffsetToScroll) < 10) {
       if (callback) { callback(); }
       return;
     }
@@ -533,7 +534,6 @@ let getCenterItem = _ => {
       icon.classList.remove('centered');
     }
   });
-  console.log(closest, closestElem);
   return {
     index: closest,
     elem: closestElem
@@ -584,7 +584,11 @@ changeProjectBox(cur);
 let debounceTimeout;
 let autoplayInterval;
 debounceScrollHandler = elem => {
-  changeProjectBox(getCenterItem().elem.dataset.index);
+  changeProjectBox((elem || getCenterItem().elem).dataset.index);
+  if(elem) {
+    let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
+    scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad');
+  }
 /*  if(throttleLock) return;
   let closestElem = (elem === 'resize') ? currentElem : elem || getCenterItem().elem;
   if(closestElem.dataset.index != cur) {
@@ -670,13 +674,21 @@ autoplayInterval = setInterval(_ => {
 let scrollAmount = 3 * sampleElementWidth();
 //let scrollAmount = Math.round(scrollContainer.getBoundingClientRect().width / sampleElementWidth()) * sampleElementWidth();
 let scrollButtonHandler = left => {
-  if(throttleLock) return;
+  let cur = getCenterItem().index;
+  if((left && cur === 0) || (!left && cur === n - 1)) return;
+  if(left) {
+    getCenterItem().elem.previousSibling.click();
+  } else {
+    getCenterItem().elem.nextSibling.click();
+  }
+
+  /*if(throttleLock) return;
   throttleLock = true;
   clearInterval(autoplayInterval);
   scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + scrollAmount * (left ? -1 : 1), 200, 'easeInOutQuad', _ => {
     throttleLock = false;
     carouselScrollHandler();
-  });
+  });*/
 };
 document.querySelector('#scroll-left').addEventListener('click', scrollButtonHandler.bind(null, true));
 document.querySelector('#scroll-right').addEventListener('click', scrollButtonHandler.bind(null, false));

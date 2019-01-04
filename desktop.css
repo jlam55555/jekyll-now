@@ -150,10 +150,15 @@
 #project-scroller {
   padding: 0 calc(50% - 129px);
   height: 275px;
+
+  scroll-snap-points-x: repeat(275px);
 }
 .project-icon {
   width: 275px;
   height: 275px;
+}
+.project-icon:last-child {
+  margin-right: 1000px;
 }
 .project-icon > img, .project-icon > .image-text {
   width: 128px;
@@ -168,7 +173,7 @@
 .project-icon > .image-text.large-text {
   font-size: 40px;
 }
-#scroll-left, #scroll-right {
+/*#scroll-left, #scroll-right {
   display: block;
   height: 258px;
   position: relative;
@@ -198,7 +203,7 @@
   left: calc(100% - 2em);
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
-}
+}*/
 
 /* about timeline */
 .timeline-year {
