@@ -587,7 +587,7 @@ debounceScrollHandler = elem => {
   changeProjectBox((elem || getCenterItem().elem).dataset.index);
   if(elem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
-    scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad');
+    //scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad');
   }
 /*  if(throttleLock) return;
   let closestElem = (elem === 'resize') ? currentElem : elem || getCenterItem().elem;
