@@ -203,6 +203,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 .timeline-header {
   order: 1;
@@ -222,7 +223,6 @@
   max-width: 50%;
   height: auto;
   margin-top: 0;
-  background-color: green;
 }
 .timeline-text {
   flex: 0 0 50%;
@@ -233,15 +233,15 @@
 }
 .timeline-year:nth-child(2n) .timeline-image {
   order: 2;
+  border-right: 5px dotted lightgrey;
 }
 .timeline-year:nth-child(2n) .timeline-text {
   order: 3;
-  border-left: 5px dotted lightgrey;
 }
 .timeline-year:nth-child(2n+1) .timeline-image {
   order: 3;
+  border-left: 5px dotted lightgrey;
 }
 .timeline-year:nth-child(2n+1) .timeline-text {
   order: 2;
-  border-right: 5px dotted lightgrey;
 }
