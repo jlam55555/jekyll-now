@@ -499,3 +499,8 @@ p, li {
   color: darkgrey;
   font-size: smaller;
 }
+
+/* about timeline */
+.timeline-image {
+  max-width: 100%;
+}

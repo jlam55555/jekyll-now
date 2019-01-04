@@ -266,6 +266,18 @@ let projects = [
     ]
   },
   {
+    imageText: '<span>Nutmeg</span><span>Bowl</span>',
+    background: './assets/nutmegbowl-full.png',
+    title: 'Nutmeg Bowl',
+    description: `The <a href='https://web.archive.org/web/20150205230240/http://nutmegbowl.com:80/' target='_blank'>design of the old website for the Nutmeg Bowl bowling alley</a> had not been changed in a decade and a half. This website sought to modernize the site by making it more consistent, aesthetically-pleasing, modular, and informative. Unfortunately, the alley had simultaneous plans to modernize their site and replaced their website shortly before this one was proposed to them.`,
+    active: '2016',
+    stack: [ 'JavaScript', 'CSS3', 'HTML5' ],
+    links: [
+      { title: 'See it', url: 'https://jlam55555.github.io/nutmegbowl/' },
+      { title: 'GitHub', url: 'https://github.com/jlam55555/nutmegbowl' }
+    ]
+  },
+  {
     imageText: '<span>uns</span><span>cram</span><span>ble</span>',
     background: './assets/unscrambler.jpg',
     title: 'Word Unscrambler',
@@ -488,7 +500,6 @@ projects.forEach((project, index) => {
   let preloadedProjectImage = new Image();
   preloadedProjectImage.src = project.background;
   preloadedProjectImages.push(preloadedProjectImage);
-  console.log('preloading image ' + index);
 });
 
 let n = projects.length;
