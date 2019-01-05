@@ -511,10 +511,8 @@ let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + pars
 
 // get first project from 2018
 // make sure it runs on time
-console.log(sampleElementWidth() * cur);
 scrollContainer.scrollLeft = sampleElementWidth() * cur;
 setTimeout(_ => {
-  console.log(sampleElementWidth() * cur);
   scrollContainer.scrollLeft = sampleElementWidth() * cur;
 }, 100);
 
