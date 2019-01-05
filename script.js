@@ -503,14 +503,15 @@ projects.forEach((project, index) => {
 });
 
 let n = projects.length;
-let cur = Math.floor(n / 2);
+let currentProject = projects.find(project => project.active === '2018');
+let cur = projects.indexOf(currentProject);
 
 // set to center
 let sampleElement = scrollContainer.firstChild;
 let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
 
 // get first project from 2018
-scrollContainer.scrollLeft = sampleElementWidth() * projects.indexOf(projects.find(project => project.active === '2018'));
+scrollContainer.scrollLeft = sampleElementWidth() * cur;
 
 // get center-most project
 let getCenterItem = _ => {
@@ -530,6 +531,7 @@ let getCenterItem = _ => {
       icon.classList.remove('centered');
     }
   });
+	if(closestElem !== currentProject) currentProject = closestElem;
   return {
     index: closest,
     elem: closestElem
@@ -593,7 +595,7 @@ projectScrollHandler = elem => {
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
     scrollContainer.classList.remove('snappy');
-    scrollContainer.animatedScrollTo(scrollToPos, 200, 'linear', _ => {
+    scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
       scrollContainer.classList.add('snappy');
       throttleLock = false
     });
@@ -612,13 +614,11 @@ scrollContainer.addEventListener('scroll', _ => {
 // scroll by 3s
 // scroll by full screen is too much
 let scrollButtonHandler = left => {
-  let center = getCenterItem();
-  let cur = center.index;
-  if((left && cur === 0) || (!left && cur === n - 1)) return;
+  if((left && !currentProject.previousSibling) || (!left && !currentProject.nextSibling)) return;
   if(left) {
-    center.elem.previousSibling.click();
+    currentProject.previousSibling.click();
   } else {
-    center.elem.nextSibling.click();
+    currentProject.nextSibling.click();
   }
 };
 document.querySelector('#scroll-left').addEventListener('click', scrollButtonHandler.bind(null, true));
@@ -626,16 +626,31 @@ document.querySelector('#scroll-right').addEventListener('click', scrollButtonHa
 
 // allow scrolling by left/right arrows
 document.addEventListener('keydown', event => {
-  let center = getCenterItem();
-  let cur = center.index;
-
-  if((currentSection == 1 || currentSection == 2) && ((event.which == 37 && cur !== 0) || (event.which == 39 && cur !== n - 1))) {
+  if((currentSection == 1 || currentSection == 2) && ((event.which == 37 && currentProject.previousSibling) || (event.which == 39 && currentProject.nextSibling))) {
     if(event.which == 37) {
-      center.elem.previousSibling.click();
+      currentProject.previousSibling.click();
     } else {
-      center.elem.nextSibling.click();
+      currentProject.nextSibling.click();
     }    
     event.preventDefault();
   }
 });
+
+// on resize fix
+let projectResizeHandler = _ => {
+	console.log('testing');
+	debounceScrollHandler(currentProject);
+
+	// for firefox
+	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+		console.log(window.innerWidth, sampleElementWidth());
+		scrollContainer.lastChild.style.marginRight = (window.innerWidth - sampleElementWidth()) / 2 + 'px';
+	}
+}
+window.addEventListener('resize', projectResizeHandler);
+setTimeout(_ => {
+	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+		projectResizeHandler();
+	}
+}, 100);
 // END CAROUSEL BEHAVIOR
