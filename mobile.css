@@ -400,11 +400,11 @@ p, li, div, h1, h2, h3, h4, h5 {
 #project-scroller {
   width: 100%;
   max-width: 100%;
-	height: calc(10em + 130px);
+	height: calc(2em + 130px);
   overflow-x: scroll;
   white-space: nowrap;
   position: relative;
-  padding: 5em calc(50% - 65px);
+  padding: 1em calc(50% - 65px);
 
   /* hide scrollbar */
   /*-ms-overflow-style: none;
@@ -469,11 +469,16 @@ p, li, div, h1, h2, h3, h4, h5 {
 #scroll-left, #scroll-right {
   display: none;
 }
+#project-active-container {
+	color: grey;
+}
 /*#scroll-left, #scroll-right {
   display: none;
 }*/
 #project-box {
 	background-color: white;
+	display: flex;
+	flex-direction: column;
 }
 #project-box #project-title {
   margin-bottom: 0;
