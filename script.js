@@ -594,9 +594,12 @@ projectScrollHandler = elem => {
   changeProjectBox((elem || curElem).dataset.index);
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
-    //scrollContainer.classList.remove('snappy');
+    scrollContainer.classList.remove('snappy');
     scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
-      //scrollContainer.classList.add('snappy');
+      // for testing
+      setTimeout(_ => {
+        scrollContainer.classList.add('snappy');
+      }, 200);
       throttleLock = false;
     });
     curElem.classList.remove('centered');
@@ -659,3 +662,10 @@ projectHelpElem.addEventListener('click', _ => {
 	projectHelpElem.classList.toggle('expanded');
 });
 // END CAROUSEL BEHAVIOR
+
+/**
+	* KNOWN BUGS a.k.a. TODO
+	*
+  * Firefox ignores padding at end of overflow scroll element container element, so this is added programatically (targeted at FF)  
+  * iOS Safari has problems adding back CSS snap behavior after it was removed, so no tapping to change
+  */
