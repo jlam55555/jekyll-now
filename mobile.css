@@ -413,14 +413,12 @@ p, li, div, h1, h2, h3, h4, h5 {
   /* hide scrollbar */
   /*-ms-overflow-style: none;
   overflow: -moz-scrollbars-none;*/
+}
 
-  scroll-snap-type: mandatory;
-  scroll-snap-points-x: repeat(130px);
-  scroll-snap-type: x mandatory;
-  /*scroll-behavior: smooth;*/
-
+#project-scroller.snappy {
   scroll-snap-type: x mandatory; /* Chrome Canary */  
   scroll-snap-type: mandatory; /* Firefox */  
+  scroll-snap-points-x: repeat(130px);
   -ms-scroll-snap-type: mandatory; /* IE/Edge */  
   -webkit-scroll-snap-type: mandatory; /* Safari */  
   -webkit-scroll-snap-destination: 0% 50%;  
@@ -438,9 +436,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   justify-content: center;
   align-items: center;
   vertical-align: top;
-}
 
-.project-icon.snappy {
   scroll-snap-align: center; /* latest (Chrome 69+) */  
   scroll-snap-coordinate: 0% 50%; /* older (Firefox/IE) */  
   -webkit-scroll-snap-coordinate: 0% 50%; /* older (Safari) */ 

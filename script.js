@@ -581,7 +581,7 @@ let autoplayInterval;
 let projectScrollHandler;
 debounceScrollHandler = elem => {
   clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(projectScrollHandler.bind(null, elem), 10);
+  debounceTimeout = setTimeout(projectScrollHandler.bind(null, elem), 100);
 };
 let throttleLock = false;
 projectScrollHandler = elem => {
@@ -597,7 +597,7 @@ projectScrollHandler = elem => {
       behavior: 'smooth'
     });*/
     scrollContainer.classList.remove('snappy');
-    scrollContainer.animatedScrollTo(scrollToPos, 50, 'linear', _ => {
+    scrollContainer.animatedScrollTo(scrollToPos, 200, 'linear', _ => {
       scrollContainer.classList.add('snappy');
       throttleLock = false
     });
