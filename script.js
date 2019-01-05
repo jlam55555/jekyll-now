@@ -570,7 +570,7 @@ let changeProjectBox = index => {
   let project = projects[index];
   projectTitleElem.textContent = project.title;
   projectDescriptionElem.innerHTML = project.description;
-  projectLightboxElem.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${project.background}')`;
+  scrollContainer.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${project.background}')`;
 
   projectActiveElem.textContent = project.active;
   projectStackElem.innerHTML = (project.stack || []).map(projectTechnology => `<span class='stack-card unselectable'><i class='${faClassMap[projectTechnology] || 'fas fa-code'}'></i> <span>${projectTechnology}</span></span>`).join('');
