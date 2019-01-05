@@ -395,6 +395,33 @@ p, li, div, h1, h2, h3, h4, h5 {
   max-width: 100%;
   padding: 0;
 }
+#project-help {
+	line-height: 1;
+	background-color: white;
+	padding: 0.25em;
+	border-radius: 1em;
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	opacity: 0.75;
+	cursor: pointer;
+	box-shadow: 0 0 1px 0 darkslategrey;
+	transition: opacity 0.2s;
+}
+#project-help-text {
+	display: none;
+	line-height: 1;
+}
+#project-help.expanded {
+	border-radius: 0.25em;
+	max-width: calc(100% - 1em);
+}
+#project-help.expanded > #project-help-text {
+	display: inline;
+}
+#project-help:hover {
+	opacity: 1;
+}
 #project-scroller {
   background-position: 0 0, center center !important;
   background-size: auto, cover !important;
