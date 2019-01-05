@@ -215,37 +215,6 @@
 #project-box > #project-stack {
 	order: 5;
 }
-/*#scroll-left, #scroll-right {
-  display: block;
-  height: 258px;
-  position: relative;
-  top: -258px;
-  margin-bottom: -258px;
-  background-color: white;
-  opacity: 0.1;
-  border: none;
-  transition: opacity 0.2s;
-  cursor: pointer;
-  font-size: 5em;
-  width: 2em;
-  color: black;
-  outline: none;
-}
-#scroll-left:hover, #scroll-right:hover {
-  opacity: 0.2;
-}
-#scroll-left:active, #scroll-right:active {
-  opacity: 0.5;
-}
-#scroll-left {
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-}
-#scroll-right {
-  left: calc(100% - 2em);
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-}*/
 
 /* about timeline */
 .timeline-year {

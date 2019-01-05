@@ -25,7 +25,6 @@ let resizeHandler = () => {
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== windowWidth || (windowWidth > 500 && windowHeight > 500)) {
     firstJumbotron.style.height = windowHeight + 'px';
-    //projectLightboxElem.style.minHeight = windowHeight + 'px';
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.minHeight = windowHeight + 'px';
     });
@@ -511,7 +510,13 @@ let sampleElement = scrollContainer.firstChild;
 let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
 
 // get first project from 2018
+// make sure it runs on time
+console.log(sampleElementWidth() * cur);
 scrollContainer.scrollLeft = sampleElementWidth() * cur;
+setTimeout(_ => {
+  console.log(sampleElementWidth() * cur);
+  scrollContainer.scrollLeft = sampleElementWidth() * cur;
+}, 100);
 
 // get center-most project
 let getCenterItem = _ => {

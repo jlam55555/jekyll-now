@@ -435,8 +435,8 @@ p, li, div, h1, h2, h3, h4, h5 {
   padding: 1em calc(50% - 65px);
 
   /* hide scrollbar */
-  /*-ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;*/
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
 }
 #project-scroller::-webkit-scrollbar {
 	display: none;
@@ -451,9 +451,9 @@ p, li, div, h1, h2, h3, h4, h5 {
   -webkit-scroll-snap-destination: 0% 50%;  
   -webkit-overflow-scrolling: touch; /* important for iOS */ 
 }
-/*#project-scroller::-webkit-scrollbar {
+#project-scroller::-webkit-scrollbar {
   display: none;
-}*/
+}
 .project-icon {
   display: inline-flex !important;
   width: 130px;
@@ -500,9 +500,6 @@ p, li, div, h1, h2, h3, h4, h5 {
 #project-active-container {
 	color: grey;
 }
-/*#scroll-left, #scroll-right {
-  display: none;
-}*/
 #project-box {
 	background-color: white;
 	display: flex;
