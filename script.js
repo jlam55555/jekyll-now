@@ -63,6 +63,35 @@ let t = setInterval(() => {
   }
 }, 150);
 
+// dynamic terminal buttons
+let codeVisualElem = document.querySelector('#codeVisual');
+let closeButtonElem = document.querySelector('#button1');
+let resizeButtonElem = document.querySelector('#button2');
+let minimizeButtonElem = document.querySelector('#button3');
+closeButtonElem.addEventListener('click', _ => {
+  codeVisualElem.classList.toggle('closed');
+});
+resizeButtonElem.addEventListener('click', _ => {
+  codeVisualElem.classList.toggle('big');
+});
+minimizeButtonElem.addEventListener('click', _ => {
+  codeVisualElem.classList.add('minimize');
+  setTimeout(_ => {
+    codeVisual.classList.remove('minimize')
+    codeVisual.classList.add('minimized')
+  }, 2000);
+});
+codeVisualElem.addEventListener('click', _ => {
+  if(codeVisualElem.classList.contains('minimized')) {
+    codeVisualElem.classList.remove('minimized');
+    codeVisualElem.classList.add('expand');
+    setTimeout(_ => {
+      codeVisualElem.classList.remove('expand');
+    }, 2000);
+  }
+});
+
+
 // dropdown button
 let dropdownButton = document.querySelector('#dropdown-button');
 let dropdown = document.querySelector('#dropdown-nav');
