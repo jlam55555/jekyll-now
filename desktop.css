@@ -173,6 +173,9 @@
 .project-icon > .image-text.large-text {
   font-size: 40px;
 }
+#scroll-left, #scroll-right {
+  display: block;
+}
 /*#scroll-left, #scroll-right {
   display: block;
   height: 258px;

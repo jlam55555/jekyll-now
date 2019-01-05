@@ -467,6 +467,9 @@ p, li, div, h1, h2, h3, h4, h5 {
   transform: scale(1.5, 1.5);
   box-shadow: 0 0 25px 1px grey;
 }
+#scroll-left, #scroll-right {
+  display: none;
+}
 /*#scroll-left, #scroll-right {
   display: none;
 }*/

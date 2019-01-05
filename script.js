@@ -509,10 +509,11 @@ let cur = Math.floor(n / 2);
 let sampleElement = scrollContainer.firstChild;
 let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
 
-scrollContainer.scrollLeft = Math.floor((sampleElementWidth() * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
+//scrollContainer.scrollLeft = Math.floor((sampleElementWidth() * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
+// get first project from 2018
+scrollContainer.scrollLeft = sampleElementWidth() * projects.indexOf(projects.find(project => project.active === '2018'));
 
 let getCenterItem = _ => {
-  //console.log('call to getCenterItem()');
   let scrollPos = scrollContainer.scrollLeft;
   let containerCenter = scrollContainer.getBoundingClientRect().width / 2;
   let elementWidth = sampleElement.getBoundingClientRect().width;
@@ -587,15 +588,10 @@ let throttleLock = false;
 projectScrollHandler = elem => {
   if(throttleLock) return;
   throttleLock = true;
-  //console.log('inside project scroll handler', performance.now());
   let curElem = getCenterItem().elem;
   changeProjectBox((elem || curElem).dataset.index);
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
-    /*scrollContainer.scrollTo({
-      left: scrollToPos,
-      behavior: 'smooth'
-    });*/
     scrollContainer.classList.remove('snappy');
     scrollContainer.animatedScrollTo(scrollToPos, 200, 'linear', _ => {
       scrollContainer.classList.add('snappy');
@@ -609,25 +605,13 @@ projectScrollHandler = elem => {
 };
 
 scrollContainer.addEventListener('scroll', _ => {
-  //console.log(performance.now());
   debounceScrollHandler();
 });
-
-// autoplay while pristine
-autoplayInterval = setInterval(_ => {
-  /*if(throttleLock) return;
-  throttleLock = true;
-  scrollContainer.animatedScrollTo(scrollContainer.scrollLeft + sampleElementWidth(), 200, 'easeInOutQuad', _ => {
-    throttleLock = false;
-    carouselScrollHandler();
-  });*/
-}, 5000);
 
 // scroll left and right
 // scroll by 3s
 // scroll by full screen is too much
 let scrollButtonHandler = left => {
-  //console.log('inside scrollButtonHandler handler');
   let center = getCenterItem();
   let cur = center.index;
   if((left && cur === 0) || (!left && cur === n - 1)) return;
@@ -642,7 +626,6 @@ document.querySelector('#scroll-right').addEventListener('click', scrollButtonHa
 
 // allow scrolling by left/right arrows
 document.addEventListener('keydown', event => {
-  //console.log('inside keydown handler');
   let center = getCenterItem();
   let cur = center.index;
 
