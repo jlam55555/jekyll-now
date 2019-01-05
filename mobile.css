@@ -437,12 +437,13 @@ p, li, div, h1, h2, h3, h4, h5 {
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: top;
+}
 
-  /*scroll-snap-align: center;*/
+.project-icon.snappy {
   scroll-snap-align: center; /* latest (Chrome 69+) */  
   scroll-snap-coordinate: 0% 50%; /* older (Firefox/IE) */  
   -webkit-scroll-snap-coordinate: 0% 50%; /* older (Safari) */ 
-  vertical-align: top;
 }
 .project-icon > img, .project-icon > .image-text {
   width: 64px;
