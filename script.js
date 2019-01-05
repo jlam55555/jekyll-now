@@ -25,7 +25,7 @@ let resizeHandler = () => {
   // prevent constant refreshing on mobile on vertical resize
   if(oldWidth !== windowWidth || (windowWidth > 500 && windowHeight > 500)) {
     firstJumbotron.style.height = windowHeight + 'px';
-    projectLightboxElem.style.minHeight = windowHeight + 'px';
+    //projectLightboxElem.style.minHeight = windowHeight + 'px';
     [].forEach.call(imageSeparators, imageSeparator => {
       imageSeparator.style.minHeight = windowHeight + 'px';
     });
@@ -242,7 +242,7 @@ let projects = [
   {
     imageText: 'Noted',
     background: './assets/noted.jpg',
-    title: 'Noted: A Chrome Extension',
+    title: 'Noted',
     description: 'Keep tabs on your shopping list, homework assignments, or daily job demands with this convenient Google Chrome extension! You can access it from the icon or from the new tab page. Your notes save automatically as you type, and will persist through browser sessions.',
     active: '2016',
     stack: [ 'HTML5', 'JavaScript', 'Google Chrome' ],
@@ -292,7 +292,7 @@ let projects = [
   {
     imageText: '<span>Simple</span><span>New</span><span>Tab</span>',
     background: './assets/snt.jpg',
-    title: 'Simple New Tab: A Chrome Extension',
+    title: 'Simple New Tab',
     description: 'Tired of the new tab page? Make it your own. You can choose to leave it blank, fill it with a color, or replace it with an image. The single control is intuitive and is hidden when not in use so you can enjoy your personalized newtab page.',
     active: '2016',
     stack: [ 'HTML5', 'JavaScript', 'CSS3', 'Google Chrome' ],
@@ -303,7 +303,7 @@ let projects = [
   {
     image: './assets/momath-2017-logo.png',
     background: './assets/momath-2017-full.jpg',
-    title: 'Assorted Math Exhibits 1',
+    title: 'MoMath Exhibits 1',
     description: `Kid-friendly, educational exhibits for the MoMath Hackathon 2017. This includes a function grapher for the <a href='https://www.youtube.com/watch?v=RzDM5qzTZeE&feature=youtu.be' target='_blank'>Dynamic Wall</a> exhibit and a function regression game for the Math Square, a large touchscreen exhibit. The Crease Graph exhibit won first place for the Dynamic Wall; the Regression Game won finalist for the Math Square; and the Main Idea Notebook won the Wolfram Award. Created with <a href='https://github.com/all88keys/' target='_blank'>Chris Vassallo</a> and <a href='https://github.com/poobaloofa' target='_blank'>Julian Ivaldi</a>.`,
     active: '2017',
     stack: [ 'JavaScript', 'Java', 'Mathematica', 'MoMath SDK' ],
@@ -327,7 +327,7 @@ let projects = [
   {
     image: './assets/bb.jpg',
     background: './assets/bb-full.jpg',
-    title: 'JBHS Bowling Website',
+    title: 'JBHS Bowling',
     description: 'Statistics for the JBHS CIBL Bowling Team of the 2017-2018 season. This website displays team statistics and uses a heuristic formula to estimate which players will be on Varsity in the subsequent week. Users can view both individual and team statistics, which include measures of center, spread, and improvement. (This website was specific to the 2017-2018 season and is not being used for the most recent JBHS Bowling Team.)',
     active: '2017-2018',
     stack: [ 'HTML5', 'CSS3', 'JavaScript', 'Angular' ],
@@ -339,7 +339,7 @@ let projects = [
   {
     image: './assets/srre.jpg',
     background: './assets/srre-full.jpg',
-    title: 'Safe Rides of Redding and Easton',
+    title: 'Safe Rides of ER9',
     description: 'The official web-app for the Safe Rides service for the ER9 region! The service provides high schoolers with a trusted, reliable way home on late Friday and Saturday nights. The web-app is a website which can easily be saved as a web-app on iOS for easy access, and offers anything a volunteer or ride-requester needs to use the service. (Currently not in use by the service, although that may change.)',
     active: '2017-2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Node.JS', 'PostgreSQL', 'Bootstrap', 'Socket.io' ],
@@ -373,7 +373,7 @@ let projects = [
   {
     image: './assets/optum-labs-logo.png',
     background: './assets/mygut-full.png',
-    title: 'myGUT X22 and RespHealth X22',
+    title: 'Optum Labs Florida',
     description: `myGUT X22 and RespHealth X22 are revolutionary new products by Optum Labs of Florida, which allow patients to conveniently and privately take lab samples at home using a kit. The kit may then be mailed to the lab for analysis, and results are reported in only a day! Patients may receive the kit from an affiliated doctor or online. The website offers a way for patients to find nearby doctors or purchase the kit directly through Shopify.`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Vue.JS', 'Java' ],
@@ -385,7 +385,7 @@ let projects = [
   {
     image: './assets/momath-2018-logo.png',
     background: './assets/momath-2018-full.jpg',
-    title: 'Assorted Math Exhibits 2',
+    title: 'MoMath Exhibits 2',
     description: `Award-winning projects for the MoMath Hackathon 2018! Again kid-friendly, educational, and interactive, the 2017 team reprises with a Doppler Effect exhibit for the Dynamic Wall (finalist), a Slope Fields animation and Spirographs of Venus exhibit (winner) for the Math Square, a fractal augmented-reality app called MengAR (winner), and a Purple Pendulums simulation (winner). Developed with the LINK team.`,
     active: '2018',
     stack: [ 'JavaScript', 'Java', 'AR.JS', 'MoMath SDK' ],
@@ -397,7 +397,7 @@ let projects = [
     image: './assets/fluorination-logo.png',
     background: './assets/fluorination-full.jpg',
     title: 'Fluorination',
-    description: `There are many high-schoolers and college students crave information in an easy, intuitive way, as they cram for a test on the next day. There are many high-schoolers and college students who have that information, and are entirely capable of delivering it. The goal of Fluorination is to gamify information-sharing to incentivize this exchange, and provide a minimalistic interface that doesn't distract from the information. This was developed during HackCooper 2018, and won Best Use of Algolia. (Currently out of service because of trial software; will be edited soon.)`,
+    description: `There are many high-schoolers and college students crave information in an easy, intuitive way, as they cram for a test on the next day. There are many high-schoolers and college students who have that information, and are entirely capable of delivering it. The goal of Fluorination is to incentivize this exchange by gamification. This was developed during HackCooper 2018, and won Best Use of Algolia. (Currently out of service because of trial software; will be edited soon.)`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'Vue.JS', 'Algolia', 'Alexa' ],
     links: [
@@ -409,7 +409,7 @@ let projects = [
     image: './assets/regulators-logo.png',
     background: './assets/regulators-full.png',
     title: 'The Regulators',
-    description: `In African nations like Uganda, junk food is becoming abundant, lifestyles are becoming stagnant, and health education is lacking, leading to a dangerous rise in diabetes. The cost of modern blood glucose-monitoring devices, electrochemical glucometers, is prohibitive for many Ugandans, so a team of Cooper Union students created a low-cost alternative: chemical test strips that change color depending on the sugar level. The website documents the process and methods used, and an app was created to help analyze the test strips.`,
+    description: `In Uganda, junk food is becoming abundant, lifestyles are becoming stagnant, and health education is lacking, leading to a dangerous rise in diabetes. The cost of modern glucometers to measure blood sugar is prohibitive for many Ugandans, so a team of Cooper Union students created a low-cost alternative: chemical test strips that change color based on the sugar level. The website documents the project, and the app helps analyze the test strips.`,
     active: '2018',
     stack: [ 'JavaScript', 'HTML5', 'CSS3', 'React.JS', 'Android', 'Java' ],
     links: [
@@ -432,7 +432,7 @@ let projects = [
   {
     imageText: '<span>Cooper</span><span>Union</span><span>Fusion</span>',
     background: '',
-    title: 'Cooper Union Student Fusion',
+    title: 'Cooper Union Fusion',
     description: `Fusion website for Cooper Union student-managed websites. The old websites have an archaic PHP back-end. This projects aims to centralize and modularize the current student websites, such as the bookfair, locker management, student resource locator, club funding applications, and student council sites. Stay tuned.`,
     active: 'Spring 2019-Summer 2019',
     stack: [ 'MERN' ],
@@ -455,7 +455,7 @@ let projects = [
   {
     image: './assets/website-logo.png',
     background: './assets/website-full.png',
-    title: 'Jonathan Lam\'s Personal Website',
+    title: 'Personal Website',
     description: `This website! You've seen it already. But it really is an evolution over the last few years. Every design choice is the result of many iterations, with the following criteria: is it fast? Is it consistent? Is it future-proof? Is it elegant? Vanilla JS and CSS were used to avoid the performance costs of libraries.`,
     active: '2017-present',
     stack: [ 'Javascript', 'HTML5', 'CSS3' ],
@@ -509,10 +509,10 @@ let cur = Math.floor(n / 2);
 let sampleElement = scrollContainer.firstChild;
 let sampleElementWidth = _ => sampleElement.getBoundingClientRect().width + parseInt(getComputedStyle(sampleElement).marginLeft.slice(0, -2)) * 2;
 
-//scrollContainer.scrollLeft = Math.floor((sampleElementWidth() * (n - (n % 2 - 1)) - scrollContainer.getBoundingClientRect().width) / 2);
 // get first project from 2018
 scrollContainer.scrollLeft = sampleElementWidth() * projects.indexOf(projects.find(project => project.active === '2018'));
 
+// get center-most project
 let getCenterItem = _ => {
   let scrollPos = scrollContainer.scrollLeft;
   let containerCenter = scrollContainer.getBoundingClientRect().width / 2;
@@ -568,7 +568,7 @@ let changeProjectBox = index => {
   let project = projects[index];
   projectTitleElem.textContent = project.title;
   projectDescriptionElem.innerHTML = project.description;
-  projectLightboxElem.style.background = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${project.background}')`;
+  projectLightboxElem.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${project.background}')`;
 
   projectActiveElem.textContent = project.active;
   projectStackElem.innerHTML = (project.stack || []).map(projectTechnology => `<span class='stack-card unselectable'><i class='${faClassMap[projectTechnology] || 'fas fa-code'}'></i> <span>${projectTechnology}</span></span>`).join('');
