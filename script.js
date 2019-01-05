@@ -595,8 +595,7 @@ projectScrollHandler = elem => {
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
     // iOS safari specific -- see note at end
-    // code to detect iOS safari from https://stackoverflow.com/questions/32850765/target-only-safari-in-javascript
-    alert(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i.test(navigator.userAgent));
+    // code to detect iOS safari from https://coderwall.com/p/ktrbhq/detect-mobile-safari
     if(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i.test(navigator.userAgent)) {
       scrollContainer.scrollTo(scrollToPos, 0);
       throttleLock = false;
