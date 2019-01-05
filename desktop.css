@@ -188,6 +188,7 @@
 	display: relative;
 	min-height: 1000px;
 	overflow: hidden;
+  background-attachment: fixed, fixed !important;
 }
 #project-box {
   border-top: 5px solid lightgrey;
