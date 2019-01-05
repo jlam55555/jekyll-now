@@ -594,7 +594,6 @@ projectScrollHandler = elem => {
   changeProjectBox((elem || curElem).dataset.index);
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
-		alert(scrollToPos + ' ' + elem.offsetLeft + ' ' + sampleElementWidth() + ' ' + scrollContainer.getBoundingClientRect().width);
     scrollContainer.classList.remove('snappy');
     scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
       scrollContainer.classList.add('snappy');
