@@ -594,14 +594,18 @@ projectScrollHandler = elem => {
   changeProjectBox((elem || curElem).dataset.index);
   if(elem && elem != curElem) {
     let scrollToPos = Math.floor(elem.offsetLeft + (sampleElementWidth() - scrollContainer.getBoundingClientRect().width) / 2);
-    scrollContainer.classList.remove('snappy');
-    scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
-      // for testing
-      setTimeout(_ => {
-        scrollContainer.classList.add('snappy');
-      }, 200);
+    // iOS safari specific -- see note at end
+    // code to detect iOS safari from https://stackoverflow.com/questions/32850765/target-only-safari-in-javascript
+    if(/constructor/i.test(window.HTMLElement)) {
+      scrollContainer.scrollTo(scrollToPos, 0);
       throttleLock = false;
-    });
+    } else {
+      scrollContainer.classList.remove('snappy');
+      scrollContainer.animatedScrollTo(scrollToPos, 200, 'easeInOutQuad', _ => {
+        scrollContainer.classList.add('snappy');
+        throttleLock = false;
+      });
+    }
     curElem.classList.remove('centered');
     elem.classList.add('centered');
   } else {
@@ -667,5 +671,5 @@ projectHelpElem.addEventListener('click', _ => {
 	* KNOWN BUGS a.k.a. TODO
 	*
   * Firefox ignores padding at end of overflow scroll element container element, so this is added programatically (targeted at FF)  
-  * iOS Safari has problems adding back CSS snap behavior after it was removed, so no tapping to change
+  * iOS Safari has problems adding back CSS snap behavior after it was removed, so tapping doesn't use animation; may be the case with more browsers
   */
