@@ -79,7 +79,7 @@ minimizeButtonElem.addEventListener('click', _ => {
   setTimeout(_ => {
     codeVisual.classList.remove('minimize')
     codeVisual.classList.add('minimized')
-  }, 2000);
+  }, 1000);
 });
 codeVisualElem.addEventListener('click', _ => {
   if(codeVisualElem.classList.contains('minimized')) {
@@ -87,7 +87,7 @@ codeVisualElem.addEventListener('click', _ => {
     codeVisualElem.classList.add('expand');
     setTimeout(_ => {
       codeVisualElem.classList.remove('expand');
-    }, 2000);
+    }, 1000);
   }
 });
 

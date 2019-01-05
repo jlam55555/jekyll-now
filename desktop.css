@@ -44,10 +44,10 @@
     100% { height: 0; width: 0; }
   }
   #codeVisual.minimize {
-    animation: minimize-codeVisual 2s forwards, minimize-codeVisual2 0.5s 1.5s forwards;
+    animation: minimize-codeVisual 1s forwards, minimize-codeVisual2 0.25s 0.75s forwards;
   }
   #codeVisual.minimize .codeVisualButton {
-    animation: minimize-codeVisualButton 2s forwards;
+    animation: minimize-codeVisualButton 1s forwards;
   }
   #codeVisual.minimized {
     cursor: pointer;
@@ -62,10 +62,10 @@
     padding: 1em;
   }
   #codeVisual.expand {
-    animation: minimize-codeVisual 2s reverse forwards, minimize-codeVisual2 0.5s reverse forwards;
+    animation: minimize-codeVisual 1s reverse forwards, minimize-codeVisual2 0.25s reverse forwards;
   }
   #codeVisual.expand .codeVisualButton {
-    animation: minimize-codeVisualButton 2s reverse forwards;
+    animation: minimize-codeVisualButton 1s reverse forwards;
   }
   .codeVisualButton {
     height: 1rem;
