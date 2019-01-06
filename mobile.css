@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .jumbotron {
   min-height: 30em;
+  width: 100%;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -224,10 +225,6 @@ th {
 
 #main-jumbotron {
   justify-content: center;
-}
-
-#copyright-notice {
-  margin-top: auto;
 }
 
 hr {
@@ -538,6 +535,9 @@ p, li, div, h1, h2, h3, h4, h5 {
 }
 
 /* contact section */
+#contact {
+  min-height: auto;
+}
 .contact-method.card {
   transition: box-shadow 0.2s;
   display: inline-block;
@@ -611,4 +611,65 @@ p, li, div, h1, h2, h3, h4, h5 {
   max-width: 100%;
   display: block;
   margin-top: 2em;
+}
+
+/* image grid */
+#image-grid {
+  width: 120%;
+  margin: 0 -20%;
+  position: relative;
+}
+.image-hexagon-container {
+  width: calc(100% / 3);
+  padding-bottom: calc(100% / 3 * 1.15470053837925152902);
+  transform: rotate(60deg) skewY(-30deg);
+  background-color: blue;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  visibility: hidden;
+}
+.image-hexagon {
+  transform: skewY(30deg) rotate(-60deg);
+  background-color: green;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+.image-hexagon-container:nth-child(2n) .image-hexagon {
+  background-color: yellow;
+}
+.image-hexagon-container:nth-child(6n+4),
+.image-hexagon-container:nth-child(6n+5),
+.image-hexagon-container:nth-child(6n+6) {
+  margin-top: calc(-33% * 0.28867513459481288225 - 0.1%);
+  margin-bottom: calc(-33% * 0.28867513459481288225 - 0.1%);
+  transform: translateX(50%) rotate(60deg) skewY(-30deg);
+}
+.image-hexagon-container:nth-last-child(1),
+.image-hexagon-container:nth-last-child(2),
+.image-hexagon-container:nth-last-child(3) {
+  margin-bottom: calc(-33% * 0.28867513459481288225 - 0.1%);
+}
+.image-hexagon-container:nth-last-child(1) .image-hexagon,
+.image-hexagon-container:nth-last-child(2) .image-hexagon,
+.image-hexagon-container:nth-last-child(3) .image-hexagon {
+  background-color: brown;
+  height: 0;
+  padding-bottom: 86.602540378443864676%;
+  transform-origin: 50% calc(200% / 3);
+  top: 0;
+  left: 0;
+}
+
+/* footer */
+#footer-jumbotron {
+  clear: both;
+  min-height: auto;
+  padding: 0;
+  margin: 0;
+}
+#footer-jumbotron > .container > * {
+  padding: 1em 0;
 }
