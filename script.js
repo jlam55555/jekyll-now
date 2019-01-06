@@ -132,6 +132,19 @@ navButtons.forEach((button, id) => {
   }));
 });
 
+// timeline buttons
+let timelineElem = document.querySelector('#timeline');
+document.querySelectorAll('.timeline-button').forEach(btnElem => {
+  let isNext = btnElem.classList.contains('timeline-button-next');
+  btnElem.addEventListener('click', _ => {
+    // iOS safari conditional -- see note at end
+    timelineElem.scrollBy({
+      left: timelineElem.getBoundingClientRect().width * (isNext ? 1 : -1),
+      behavior: /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i.test(navigator.userAgent) ? 'auto' : 'smooth'
+    });
+  });
+});
+
 // START CAROUSEL BEHAVIOR
 // scroll animation function adapted from https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
 HTMLElement.prototype.animatedScrollTo = function(destination, duration = 200, easing = 'linear', callback) {

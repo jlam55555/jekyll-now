@@ -555,6 +555,51 @@ p, li, div, h1, h2, h3, h4, h5 {
 }
 
 /* about timeline */
+#timeline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0.5em;
+  box-shadow: 0 0 1px 0 darkslategrey;
+  
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* Chrome Canary */  
+  scroll-snap-type: mandatory; /* Firefox */  
+  scroll-snap-points-x: repeat(100%);
+  -ms-scroll-snap-type: mandatory; /* IE/Edge */  
+  -webkit-scroll-snap-type: mandatory; /* Safari */  
+  -webkit-scroll-snap-destination: 0% 50%;  
+  -webkit-overflow-scrolling: touch; /* important for iOS */ 
+}
+/* this is to create appropriate padding */
+#timeline::after {
+  content: '';
+  display: block;
+  flex: 0 0 1px;
+  width: 1px;
+  height: 1px;
+}
+.timeline-year {
+  flex: 0 0 calc(100%);
+  margin: 0.5em;
+
+  scroll-snap-align: center; /* latest (Chrome 69+) */  
+  scroll-snap-coordinate: 0% 50%; /* older (Firefox/IE) */  
+  -webkit-scroll-snap-coordinate: 0% 50%; /* older (Safari) */ 
+}
+.timeline-year .timeline-text::after {
+  content: 'Swipe left or right to continue reading.';
+  display: block;
+  color: grey;
+  font-size: smaller;
+  margin-top: 1em;
+}
+.timeline-year:first-child .timeline-text::after {
+  content: 'Swipe left to continue reading.';
+}
+.timeline-year:last-child .timeline-text::after {
+  content: 'Swipe right to go back.';
+}
 .timeline-header, .timeline-text {
   display: inline;
 }

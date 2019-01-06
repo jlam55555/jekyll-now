@@ -276,12 +276,24 @@
 }
 
 /* about timeline */
+#timeline {
+  padding: 0;
+  box-shadow: none;
+}
 .timeline-year {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  flex: 0 0 calc(100% - 2em);
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0 0 1px 0 darkslategrey;
+}
+.timeline-year .timeline-text::after {
+  display: none;
 }
 .timeline-header {
   order: 1;
@@ -322,4 +334,16 @@
 }
 .timeline-year:nth-child(2n+1) .timeline-text {
   order: 2;
+}
+.timeline-button {
+  font-size: smaller;
+  font-family: inherit;
+  color: gray;
+  text-decoration: underline;
+  margin-top: 1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
 }
