@@ -614,6 +614,7 @@ p, li, div, h1, h2, h3, h4, h5 {
 }
 
 /* image grid */
+/* tips from https://www.codesmite.com/article/how-to-create-pure-css-hexagonal-grids */
 #image-grid {
   width: 120%;
   margin: 0 -20%;
