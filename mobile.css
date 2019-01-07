@@ -209,6 +209,7 @@ th {
   padding: 0.5em;
   text-align: center;
   text-decoration: none;
+  line-height: 1;
 }
 #nav-bar a {
   color: black;
@@ -216,12 +217,6 @@ th {
   padding: 0.5em;
   margin-bottom: 5px;
 }
-/*
-#nav-bar a:hover {
-  border-bottom: 5px solid lightgrey;
-  margin-bottom: 0;
-}
-*/
 
 #main-jumbotron {
   justify-content: center;
@@ -635,7 +630,7 @@ p, li, div, h1, h2, h3, h4, h5 {
   width: 100%;
   height: 100%;
   visibility: visible;
-  border: 2.5px solid white;
+  border: 5px solid white;
 
   background-size: cover;
   background-position: center;
@@ -646,15 +641,15 @@ p, li, div, h1, h2, h3, h4, h5 {
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden;
 }
-/* active and focus for mobile */
+/* active and focus for mobile -- not working for mobile */
 .image-hexagon:hover, .image-hexagon:active, .image-hexagon:focus {
   filter: grayscale(0);
 }
 .image-hexagon-container:nth-child(6n+4),
 .image-hexagon-container:nth-child(6n+5),
 .image-hexagon-container:nth-child(6n+6) {
-  margin-top: calc(-100% / 3 * 0.28867513459481288225 + 5px);
-  margin-bottom: calc(-100% / 3 * 0.28867513459481288225 + 5px);
+  margin-top: calc(-100% / 3 * 0.28867513459481288225 + 10px);
+  margin-bottom: calc(-100% / 3 * 0.28867513459481288225 + 10px);
   transform: translateX(50%) rotate(60deg) skewY(-30deg);
 }
 .image-hexagon-container:nth-last-child(1),

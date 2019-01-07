@@ -370,8 +370,8 @@
 .image-hexagon-container:nth-child(14n+12),
 .image-hexagon-container:nth-child(14n+13),
 .image-hexagon-container:nth-child(14n+14) {
-  margin-top: calc(-100% / 7 * 0.28867513459481288225 + 5px) !important;
-  margin-bottom: calc(-100% / 7 * 0.28867513459481288225 + 5px) !important;
+  margin-top: calc(-100% / 7 * 0.28867513459481288225 + 10px) !important;
+  margin-bottom: calc(-100% / 7 * 0.28867513459481288225 + 10px) !important;
   transform: translateX(50%) rotate(60deg) skewY(-30deg) !important;
 }
 .image-hexagon-container:nth-last-child(1),
