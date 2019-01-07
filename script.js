@@ -712,6 +712,41 @@ projectHelpElem.addEventListener('click', _ => {
 });
 // END CAROUSEL BEHAVIOR
 
+/* hexagon images */
+const hexagonImages = [
+  './assets/jon-dld.jpg',
+  './assets/jon-award.jpg',
+  './assets/jon-bowling-action.jpg',
+  './assets/jon-codeb.jpg',
+  './assets/jon-bowling.jpg',
+  './assets/jon-momath.jpg',
+  './assets/jon-piano.jpg',
+  './assets/jon-portrait.jpg',
+  './assets/jon-sleep.jpg',
+  './assets/jon-skates.jpg',
+  './assets/jon-ski.jpg',
+  './assets/jon-science.jpg',
+  './assets/jon-subway.jpg',
+  './assets/jon-snowman.jpg',
+  './assets/jon-marathon.jpg',
+  './assets/jon-workspace.jpg',
+  './assets/jon-stuyhacks.jpg',
+  './assets/jon-piano2.jpg',
+  './assets/jon-cubing.jpg',
+  './assets/jon-sbhacks.jpg',
+  './assets/jon-momath2.jpg',
+];
+let hexagonImageGridElem = document.querySelector('#image-grid');
+hexagonImages.forEach(imageSource => {
+  let hexagonContainerElem = document.createElement('div');
+  hexagonContainerElem.classList.add('image-hexagon-container');
+  let hexagonElem = document.createElement('div');
+  hexagonElem.classList.add('image-hexagon');
+  hexagonElem.style.backgroundImage = `url(${imageSource})`;
+  hexagonContainerElem.appendChild(hexagonElem);
+  hexagonImageGridElem.appendChild(hexagonContainerElem);
+});
+
 /**
 	* KNOWN BUGS a.k.a. TODO
 	*
