@@ -5,6 +5,14 @@
   background-attachment: fixed;
   display: block;
 }
+.codeVisualButton {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+#codeVisualTitle {
+  color: transparent;
+}
 @media screen and (min-height: 750px) {
   #codeVisual {
     background-color: tan;
@@ -60,6 +68,7 @@
   }
   #codeVisualTitle {
     padding: 1em;
+    color: black;
   }
   #codeVisual.expand {
     animation: minimize-codeVisual 1s reverse forwards, minimize-codeVisual2 0.25s reverse forwards;
@@ -196,14 +205,6 @@
 }
 .project:hover::before {
   opacity: 0;
-}
-.mini-project {
-  width: calc(100% / 3);
-}
-@media screen and (max-width: 1600px) {
-  .mini-project {
-    width: 50%;
-  }
 }
 
 #project-scroller {

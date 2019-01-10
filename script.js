@@ -461,7 +461,7 @@ let projects = [
   },
   {
     imageText: 'CM',
-    background: '',
+    background: './assets/consignmore-full.png',
     title: 'Consignmore',
     description: `It may take over a month for a consignor's art piece to go through the consignment process, and there may be no feedback from the auction house at all during that period. There's no way to know what preparation stage the piece is currently at, what the current bids are, or if the piece has been bought. Consignmore solves this problem by enabling data flow internally (in the auction house) and externally (to the consignors) in a simple, intuitive interface.`,
     active: '2018-present',
